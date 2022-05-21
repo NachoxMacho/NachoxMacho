@@ -1,0 +1,150 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.minimap.enabled": false,
+    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "workbench.iconTheme": "vscode-icons",
+    "powershell.codeFormatting.autoCorrectAliases": true,
+    "powershell.codeFormatting.useCorrectCasing": true,
+    "git.autofetch": true,
+    "explorer.confirmDragAndDrop": false,
+    "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+    "powershell.codeFormatting.whitespaceBetweenParameters": true,
+    "powershell.integratedConsole.suppressStartupBanner": true,
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#ff4040",
+        "contrastBorder": "#16161C"
+    },
+    "editor.rulers": [
+        {
+            "color": "#FF0000",
+            "column": 120
+        },
+        {
+            "color": "#00A700",
+            "column": 100
+        }
+    ],
+    "vsicons.dontShowNewVersionMessage": true,
+    "git.confirmSync": false,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "name": "No italics",
+                "scope": [
+                    "comment",
+                    "markup.quote",
+                    "variable.language",
+                    "variable.parameter"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            }
+        ]
+    },
+    "powershell.pester.useLegacyCodeLens": false,
+    "pesterExplorer.autoDiscoverOnOpen": true,
+    "redhat.telemetry.enabled": false,
+    "terminal.integrated.profiles.windows": {
+        "Windows PowerShell": {
+            "path": "${env:windir}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "icon": "chevron-right",
+            "color": "terminal.ansiBlue",
+            "overrideName": true
+        },
+        "QMK Bash": {
+            "path": "C:/QMK_MSYS/shell_connector.cmd",
+            "icon": "record-keys",
+            "overrideName": true,
+            "color": "terminal.ansiGreen"
+        },
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell",
+            "color": "terminal.ansiRed"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash",
+            "color": "terminal.ansiMagenta",
+            "icon": "git-branch",
+            "overrideName": true
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "files.trimTrailingWhitespace": true,
+    "diffEditor.renderSideBySide": false,
+    "terminal.external.windowsExec": "pwsh.exe",
+    "powershell.promptToUpdatePowerShell": false,
+    "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ],
+    "mssql.connections": [
+        {
+            "server": "{{put-server-name-here}}",
+            "database": "{{put-database-name-here}}",
+            "user": "{{put-username-here}}",
+            "password": ""
+        }
+    ],
+    "docker.showStartPage": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.bracketPairColorization.enabled": true,
+    "window.title": "${dirty}${rootName}${separator}${activeEditorShort}${separator}${appName}",
+    "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.limit.value": 6,
+    "workbench.editor.limit.enabled": true,
+    "powershell.debugging.createTemporaryIntegratedConsole": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "powershell.codeFormatting.newLineAfterCloseBrace": false,
+    "powershell.codeFormatting.useConstantStrings": true,
+    "cmake.configureOnOpen": true,
+    "workbench.colorTheme": "Horizon",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.sideBar.location": "right",
+    "window.menuBarVisibility": "compact",
+}
