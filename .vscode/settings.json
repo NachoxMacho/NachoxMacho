@@ -7,4 +7,11 @@
     "workbench.sideBar.location": "right",
     "editor.minimap.enabled": false,
     "files.trimTrailingWhitespace": true,
+    "window.commandCenter": false,
+    "explorer.autoReveal": "focusNoScroll",
+    "explorer.compactFolders": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmUndo": "light",
+    "explorer.openEditors.visible": 0,
 }

@@ -1,7 +1,7 @@
 {
     "recommendations": [
         "eamodio.gitlens",
-        "ms-vscode.powershell",
-        "alexandernanberg.horizon-theme-vscode"
+        "catppuccin.catppuccin-vsc",
+        "catppuccin.catppuccin-vsc-icons"
     ]
 }
