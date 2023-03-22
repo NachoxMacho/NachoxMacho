@@ -13,6 +13,5 @@ mkdir "${HOME}/.icons"
 unzip "$(pwd)/packages/Themes/candy-icons-master.zip" -d "${HOME}/.icons"
 
 # Configure to use new themes
-
 gsettings set org.gnome.desktop.interface icon-theme candy-icons-master
 gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Mocha-Standard-Maroon-Dark
