@@ -14,4 +14,6 @@
     "explorer.confirmDelete": false,
     "explorer.confirmUndo": "light",
     "explorer.openEditors.visible": 0,
+    "git.autofetch": true,
+    "git.confirmSync": false,
 }
