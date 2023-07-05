@@ -20,7 +20,7 @@ vim.keymap.set('n', '<C-S-down>', '<Esc><C-w><down>', { desc = 'Window Focus Dow
 
 vim.keymap.set('n', '<C-left>', ':bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<C-right>', ':bprevious<cr>', { desc = 'Prev buffer'})
-vim.keymap.set('n', '<C-x>', ':bd<cr>', { desc = 'Close buffer' })
+vim.keymap.set('n', '<C-x>', ':bd<cr>:bnext<cr>', { desc = 'Close buffer' })
 
 vim.keymap.set('i', '<C-left>', '<Esc>:bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('i', '<C-right>', '<Esc>:bnext<cr>', { desc = 'Next buffer' })
