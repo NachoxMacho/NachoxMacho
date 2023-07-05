@@ -1,10 +1,10 @@
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+vim.keymap.set('n', '<leader>gs', ':keepalt Gedit :<cr>')
 
 local NachoxMacho_Fugutive = vim.api.nvim_create_augroup("NachoxMacho_Fugutive", {})
 
 local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufWinEnter", {
-    group = NachoxMacho_Fugitive,
+    group = NachoxMacho_Fugutive,
     pattern = "*",
     callback = function()
         if vim.bo.ft ~= "fugitive" then
@@ -19,7 +19,7 @@ autocmd("BufWinEnter", {
 
         -- rebase always
         vim.keymap.set("n", "<leader>P", function()
-            vim.cmd.Git({'pull',  '--rebase'})
+            vim.cmd.Git({'pull'})
         end, opts)
 
         -- NOTE: It allows me to easily set the branch i am pushing and any tracking
