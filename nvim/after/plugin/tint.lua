@@ -1,1 +1,3 @@
-require('tint').setup()
+require('tint').setup({
+    tint = -100
+})
