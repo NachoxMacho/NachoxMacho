@@ -13,7 +13,14 @@ vim.keymap.set("v", "<A-down>", ":m '>+1<CR>gv=gv")
 vim.keymap.set('i', '<A-up>', '<Esc>:m -2 <enter>i')
 vim.keymap.set('i', '<A-down>', '<Esc>:m +1 <enter>i')
 
-vim.keymap.set('n', '<C-left>', ':bnext<cr>')
-vim.keymap.set('n', '<C-right>', ':bprevious<cr>')
-vim.keymap.set('n', '<C-x>', ':bd<cr>')
+vim.keymap.set('n', '<C-S-left>', '<Esc><C-w><left>', { desc = 'Window Focus Left' })
+vim.keymap.set('n', '<C-S-right>', '<Esc><C-w><right>', { desc = 'Window Focus Right' })
+vim.keymap.set('n', '<C-S-up>', '<Esc><C-w><up>', { desc = 'Window Focus Up' })
+vim.keymap.set('n', '<C-S-down>', '<Esc><C-w><down>', { desc = 'Window Focus Down' })
 
+vim.keymap.set('n', '<C-left>', ':bnext<cr>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<C-right>', ':bprevious<cr>', { desc = 'Prev buffer'})
+vim.keymap.set('n', '<C-x>', ':bd<cr>', { desc = 'Close buffer' })
+
+vim.keymap.set('i', '<C-left>', '<Esc>:bnext<cr>', { desc = 'Next buffer' })
+vim.keymap.set('i', '<C-right>', '<Esc>:bnext<cr>', { desc = 'Next buffer' })
