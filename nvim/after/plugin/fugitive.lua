@@ -1,4 +1,7 @@
 vim.keymap.set('n', '<leader>gs', ':keepalt Gedit :<cr>')
+vim.keymap.set('n', '<leader>gp', ':Git push<cr>')
+vim.keymap.set('n', '<leader>gc', ':Git commit -m ""<left>')
+vim.keymap.set('n', '<leader>gd', ':vert Gdiff HEAD<cr>')
 
 local NachoxMacho_Fugutive = vim.api.nvim_create_augroup("NachoxMacho_Fugutive", {})
 
