@@ -92,7 +92,7 @@ return require('packer').startup(function(use)
 
   use 'lukas-reineke/indent-blankline.nvim'
 
-  use 'sunjon/shade.nvim'
+  use 'levouh/tint.nvim'
   use 'bekaboo/dropbar.nvim'
   use 'RRethy/vim-illuminate'
   use 'mhartington/formatter.nvim'
