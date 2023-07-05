@@ -16,4 +16,8 @@
     "explorer.openEditors.visible": 0,
     "git.autofetch": true,
     "git.confirmSync": false,
+    "workbench.startupEditor": "none",
+    "window.titleBarStyle": "custom",
+    "git.enableSmartCommit": false,
+    "git.suggestSmartCommit": false,
 }
