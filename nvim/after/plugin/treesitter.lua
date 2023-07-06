@@ -21,4 +21,6 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-require 'nvim-treesitter.install'.compilers = { 'clang' }
+if vim.fn.has('win64') or vim.fn.has('win32') or vim.fn.has('win16') then
+    require 'nvim-treesitter.install'.compilers = { 'clang' }
+end

@@ -12,7 +12,11 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = "~/.vim/undodir"
+if vim.fn.has('win64') or vim.fn.has('win32') or vim.fn.has('win16') then
+    vim.opt.undodir = os.getenv('LocalAppData') .. '/nvim-data/undodir'
+else
+    vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+end
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
