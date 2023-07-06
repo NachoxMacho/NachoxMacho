@@ -20,7 +20,16 @@ vim.keymap.set('n', '<C-S-down>', '<Esc><C-w><down>', { desc = 'Window Focus Dow
 
 vim.keymap.set('n', '<C-left>', ':bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<C-right>', ':bprevious<cr>', { desc = 'Prev buffer'})
-vim.keymap.set('n', '<C-x>', ':bd<cr>:bnext<cr>', { desc = 'Close buffer' })
+vim.keymap.set('n', '<C-x>', ':bd<cr>', { desc = 'Close buffer' })
 
 vim.keymap.set('i', '<C-left>', '<Esc>:bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('i', '<C-right>', '<Esc>:bnext<cr>', { desc = 'Next buffer' })
+
+vim.keymap.set('n', '<C-up>', '<C-u>zz', { desc = 'Page Up' })
+vim.keymap.set('n', '<C-down>', '<C-d>zz', { desc = 'Page Down' })
+
+vim.keymap.set('i', '<C-up>', '<C-u>zz', { desc = 'Page Up' })
+vim.keymap.set('i', '<C-down>', '<C-d>zz', { desc = 'Page Down' })
+
+vim.keymap.set('v', '<C-up>', '<C-u>zz', { desc = 'Page Up' })
+vim.keymap.set('v', '<C-down>', '<C-d>zz', { desc = 'Page Down' })
