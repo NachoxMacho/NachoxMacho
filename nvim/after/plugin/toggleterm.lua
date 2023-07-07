@@ -1,5 +1,7 @@
 require('toggleterm').setup{
-    direction = 'float'
+    direction = 'float',
+    start_in_insert = true,
+    persist_mode = false,
 }
 
 vim.keymap.set('n', '<leader>t', ':ToggleTerm<cr>')
