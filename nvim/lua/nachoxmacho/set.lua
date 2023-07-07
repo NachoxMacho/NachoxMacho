@@ -12,7 +12,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-if vim.fn.has('win64') or vim.fn.has('win32') or vim.fn.has('win16') then
+if vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 or vim.fn.has('win16') == 1 then
     vim.opt.undodir = os.getenv('LocalAppData') .. '/nvim-data/undodir'
     local powershell_options = {
       shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",

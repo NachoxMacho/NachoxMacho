@@ -25,12 +25,14 @@ lsp.nvim_workspace()
 local cmp = require('cmp')
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<enter>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-\\>"] = cmp.mapping.complete(),
+  ["<C-space>"] = cmp.mapping.complete(),
 })
 
-
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
+if vim.fn.has('win64') or vim.fn.has('win32') or vim.fn.has('win16') then
+    cmp_mappings['<C-backslash>'] = cmp.mapping.complete()
+else
+    cmp_mappings['<C-Space>'] = cmp.mapping.complete()
+end
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
