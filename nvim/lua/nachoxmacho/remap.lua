@@ -13,6 +13,11 @@ vim.keymap.set("v", "<A-down>", ":m '>+1<CR>gv=gv", { desc = 'Move selection dow
 vim.keymap.set('i', '<A-up>', '<Esc>:m -2 <enter>i', { desc = 'Move line up' })
 vim.keymap.set('i', '<A-down>', '<Esc>:m +1 <enter>i', { desc = 'Move line down' })
 
+vim.keymap.set('t', '<C-S-left>', '<Esc><C-w><left>', { desc = 'Window Focus Left' })
+vim.keymap.set('t', '<C-S-right>', '<Esc><C-w><right>', { desc = 'Window Focus Right' })
+vim.keymap.set('t', '<C-S-up>', '<Esc><C-w><up>', { desc = 'Window Focus Up' })
+vim.keymap.set('t', '<C-S-down>', '<Esc><C-w><down>', { desc = 'Window Focus Down' })
+
 vim.keymap.set('n', '<C-S-left>', '<Esc><C-w><left>', { desc = 'Window Focus Left' })
 vim.keymap.set('n', '<C-S-right>', '<Esc><C-w><right>', { desc = 'Window Focus Right' })
 vim.keymap.set('n', '<C-S-up>', '<Esc><C-w><up>', { desc = 'Window Focus Up' })
