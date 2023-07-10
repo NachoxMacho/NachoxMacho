@@ -96,11 +96,10 @@ return require('packer').startup(function(use)
   use 'mhartington/formatter.nvim'
   use 'm4xshen/autoclose.nvim'
   use 'smolck/command-completion.nvim'
-  use {
-      'j-hui/fidget.nvim',
-      tag = 'legacy'
-  }
+  use { 'j-hui/fidget.nvim', tag = 'legacy' }
   use 'akinsho/toggleterm.nvim'
+  use 'cljoly/telescope-repo.nvim'
+  use 'airblade/vim-rooter'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
