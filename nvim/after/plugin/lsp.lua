@@ -28,8 +28,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ["<C-space>"] = cmp.mapping.complete(),
 })
 
-if vim.fn.has('win64') or vim.fn.has('win32') or vim.fn.has('win16') then
-    cmp_mappings['<C-backslash>'] = cmp.mapping.complete()
+if vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 or vim.fn.has('win16') == 1 then
+    cmp_mappings['<C-k>'] = cmp.mapping.complete()
 else
     cmp_mappings['<C-Space>'] = cmp.mapping.complete()
 end
@@ -45,7 +45,8 @@ lsp.set_preferences({
         warn = 'W',
         hint = 'H',
         info = 'I'
-    }
+    },
+
 })
 
 lsp.on_attach(function(client, bufnr)
