@@ -101,6 +101,8 @@ return require('packer').startup(function(use)
       tag = 'legacy'
   }
   use 'akinsho/toggleterm.nvim'
+  use 'cljoly/telescope-repo.nvim'
+  use 'airblade/vim-rooter'
   use 'idanarye/vim-merginal'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
