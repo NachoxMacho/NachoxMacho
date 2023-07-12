@@ -44,14 +44,14 @@ local function gitCommit()
 end
 
 vim.keymap.set('n', '<leader>gs', toggleGit, { desc = 'Open Git Status'})
-vim.keymap.set('n', '<leader>gc', gitCommit, { desc = 'Git Commit' })
-vim.keymap.set('n', '<leader>gd', ':vert Gdiff HEAD<cr>', { desc = 'Git Diff current file' })
+vim.keymap.set('n', '<leader>gc', gitCommit, { desc = 'Commit' })
+vim.keymap.set('n', '<leader>gd', ':vert Gdiff HEAD<cr>', { desc = 'Diff current file' })
 vim.keymap.set('n', '<leader>gf', function ()
     local curFile = vim.api.nvim_buf_get_name(0)
     vim.cmd(':Git add ' .. curFile)
     gitCommit()
-end)
-
+end, { desc = 'Stage current file and commit' })
+vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<cr>', { desc = 'Switch Branch'})
 
 local NachoxMacho_Fugutive = vim.api.nvim_create_augroup("NachoxMacho_Fugutive", {})
 
