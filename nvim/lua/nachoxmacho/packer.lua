@@ -101,7 +101,6 @@ return require('packer').startup(function(use)
       tag = 'legacy'
   }
   use 'akinsho/toggleterm.nvim'
-  use 'idanarye/vim-merginal'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
