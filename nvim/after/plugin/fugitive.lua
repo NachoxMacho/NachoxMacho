@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>gp', ':Git push --quiet<cr>', { desc = 'Git Push' })
+vim.keymap.set('n', '<leader>gp', ':Git push<cr>', { desc = 'Git Push' })
 vim.keymap.set('n', '<leader>gu', ':Git pull<cr>', { desc = 'Git Pull' })
 
 local function findGitWindow()
