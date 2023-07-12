@@ -1,8 +1,20 @@
 vim.keymap.set('n', '<leader>gs', ':keepalt Gedit :<cr>', { desc = 'Open Git Status Message' })
 vim.keymap.set('n', '<leader>gp', ':Git push<cr>', { desc = 'Git Push' })
 vim.keymap.set('n', '<leader>gu', ':Git pull<cr>', { desc = 'Git Pull' })
-vim.keymap.set('n', '<leader>gc', ':Git commit -m ""<left>', { desc = 'Git Commit' })
+vim.keymap.set('n', '<leader>gc', function()
+    local message = vim.fn.input('Message > ')
+    vim.cmd(':Git commit -m "' .. message .. '"')
+end, { desc = 'Git Commit' })
 vim.keymap.set('n', '<leader>gd', ':vert Gdiff HEAD<cr>', { desc = 'Git Diff current file' })
+vim.keymap.set('n', '<leader>gf', function ()
+    local curFile = vim.api.nvim_buf_get_name(0)
+    vim.cmd(':Git add ' .. curFile)
+    local message = vim.fn.input("Message > ")
+    if message ~= nil and message ~= '' then
+        vim.cmd(':Git commit -m "' ..message .. '"')
+    end
+end)
+
 
 local NachoxMacho_Fugutive = vim.api.nvim_create_augroup("NachoxMacho_Fugutive", {})
 
@@ -20,6 +32,6 @@ autocmd("BufWinEnter", {
 
         -- NOTE: It allows me to easily set the branch i am pushing and any tracking
         -- needed if i did not set the branch up correctly
-        vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
+        -- vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
     end,
 })
