@@ -1,18 +1,22 @@
 vim.keymap.set('n', '<leader>gs', ':keepalt Gedit :<cr>', { desc = 'Open Git Status Message' })
 vim.keymap.set('n', '<leader>gp', ':Git push<cr>', { desc = 'Git Push' })
 vim.keymap.set('n', '<leader>gu', ':Git pull<cr>', { desc = 'Git Pull' })
-vim.keymap.set('n', '<leader>gc', function()
+
+local function gitCommit()
     local message = vim.fn.input('Message > ')
-    vim.cmd(':Git commit -m "' .. message .. '"')
-end, { desc = 'Git Commit' })
+    if message ~= nil and message ~= '' then
+        vim.cmd(':Git commit -m "' .. message .. '"')
+    else
+        vim.print('No commit made, empty message')
+    end
+end
+
+vim.keymap.set('n', '<leader>gc', gitCommit, { desc = 'Git Commit' })
 vim.keymap.set('n', '<leader>gd', ':vert Gdiff HEAD<cr>', { desc = 'Git Diff current file' })
 vim.keymap.set('n', '<leader>gf', function ()
     local curFile = vim.api.nvim_buf_get_name(0)
     vim.cmd(':Git add ' .. curFile)
-    local message = vim.fn.input("Message > ")
-    if message ~= nil and message ~= '' then
-        vim.cmd(':Git commit -m "' ..message .. '"')
-    end
+    gitCommit()
 end)
 
 
