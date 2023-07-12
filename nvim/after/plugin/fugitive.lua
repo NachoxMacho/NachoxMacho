@@ -7,7 +7,7 @@ vim.keymap.set('n', '<leader>gs', function ()
             return
         end
     end
-    vim.cmd(':Git')
+    vim.cmd(':vertical Git')
 end, { desc = 'Open Git Status'})
 vim.keymap.set('n', '<leader>gp', ':Git push<cr>', { desc = 'Git Push' })
 vim.keymap.set('n', '<leader>gu', ':Git pull<cr>', { desc = 'Git Pull' })
