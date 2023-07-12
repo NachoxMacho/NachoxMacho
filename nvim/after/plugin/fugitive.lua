@@ -5,8 +5,8 @@ vim.keymap.set('n', '<leader>gc', ':Git commit -m ""<left>', { desc = 'Git Commi
 vim.keymap.set('n', '<leader>gd', ':vert Gdiff HEAD<cr>', { desc = 'Git Diff current file' })
 vim.keymap.set('n', '<leader>gf', function ()
     local curFile = vim.api.nvim_buf_get_name(0)
-    local message = vim.fn.input('Message > ')
-    vim.cmd(':Git add ' .. curFile)
+    local message = vim.fn.input("Message > ")
+    vim.cmd(':Git add ' .. curFile .. "<cr>")
     vim.cmd(':Git commit -m "' ..message .. '"')
 end)
 
