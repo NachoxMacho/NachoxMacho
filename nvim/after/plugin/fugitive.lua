@@ -3,6 +3,13 @@ vim.keymap.set('n', '<leader>gp', ':Git push<cr>', { desc = 'Git Push' })
 vim.keymap.set('n', '<leader>gu', ':Git pull<cr>', { desc = 'Git Pull' })
 vim.keymap.set('n', '<leader>gc', ':Git commit -m ""<left>', { desc = 'Git Commit' })
 vim.keymap.set('n', '<leader>gd', ':vert Gdiff HEAD<cr>', { desc = 'Git Diff current file' })
+vim.keymap.set('n', '<leader>gf', function ()
+    local curFile = vim.api.nvim_buf_get_name(0)
+    local message = vim.api.nvim_input('Message > ')
+    vim.cmd(':Git add ' .. curFile)
+    vim.cmd(':Git commit -m "' .. message .. '"')
+end)
+
 
 local NachoxMacho_Fugutive = vim.api.nvim_create_augroup("NachoxMacho_Fugutive", {})
 
