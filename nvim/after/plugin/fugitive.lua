@@ -1,4 +1,14 @@
-vim.keymap.set('n', '<leader>gs', ':keepalt Gedit :<cr>', { desc = 'Open Git Status Message' })
+vim.keymap.set('n', '<leader>gs', function ()
+    local windows = vim.api.nvim_list_wins()
+    for _, handle in ipairs(windows) do
+        local s, _ = pcall(vim.api.nvim_win_get_var, handle, 'fugitive_status')
+        if s then
+            vim.api.nvim_win_close(handle, true)
+            return
+        end
+    end
+    vim.cmd(':Git')
+end, { desc = 'Open Git Status'})
 vim.keymap.set('n', '<leader>gp', ':Git push<cr>', { desc = 'Git Push' })
 vim.keymap.set('n', '<leader>gu', ':Git pull<cr>', { desc = 'Git Pull' })
 
