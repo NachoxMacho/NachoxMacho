@@ -13,6 +13,7 @@ vim.keymap.set('n', '<leader>gp', ':Git push --quiet<cr>', { desc = 'Git Push' }
 vim.keymap.set('n', '<leader>gu', ':Git pull<cr>', { desc = 'Git Pull' })
 
 local function gitCommit()
+    vim.cmd(':Git diff --cached')
     local message = vim.fn.input('Message > ')
     if message ~= nil and message ~= '' then
         vim.cmd(':Git commit -m "' .. message .. '"')
