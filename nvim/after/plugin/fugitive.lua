@@ -9,7 +9,7 @@ vim.keymap.set('n', '<leader>gs', function ()
     end
     vim.cmd(':vertical Git')
 end, { desc = 'Open Git Status'})
-vim.keymap.set('n', '<leader>gp', ':Git push<cr> --quiet', { desc = 'Git Push' })
+vim.keymap.set('n', '<leader>gp', ':Git push --quiet<cr>', { desc = 'Git Push' })
 vim.keymap.set('n', '<leader>gu', ':Git pull<cr>', { desc = 'Git Pull' })
 
 local function gitCommit()
