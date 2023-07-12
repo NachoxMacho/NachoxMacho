@@ -52,6 +52,7 @@ vim.keymap.set('n', '<leader>gf', function ()
     gitCommit()
 end, { desc = 'Stage current file and commit' })
 vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<cr>', { desc = 'Switch Branch'})
+vim.keymap.set('n', '<leader>gl', ':Telescope git_commits<cr>', { desc = 'Search Commit Log'})
 
 local NachoxMacho_Fugutive = vim.api.nvim_create_augroup("NachoxMacho_Fugutive", {})
 
