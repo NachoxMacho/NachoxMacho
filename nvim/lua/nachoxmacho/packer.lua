@@ -45,14 +45,12 @@ return require('packer').startup(function(use)
           local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
           ts_update()
       end,}
-      use("nvim-treesitter/playground")
-      use("theprimeagen/harpoon")
-      use("theprimeagen/refactoring.nvim")
-      use("mbbill/undotree")
-      use("tpope/vim-fugitive")
-      use("nvim-treesitter/nvim-treesitter-context");
-      use 'nvim-tree/nvim-tree.lua'
-      use 'nvim-tree/nvim-web-devicons'
+  use("nvim-treesitter/playground")
+  use("theprimeagen/harpoon")
+  use("theprimeagen/refactoring.nvim")
+  use("mbbill/undotree")
+  use("tpope/vim-fugitive")
+  use("nvim-treesitter/nvim-treesitter-context");
 
   use 'nvim-lualine/lualine.nvim'
   use {
@@ -101,7 +99,10 @@ return require('packer').startup(function(use)
       tag = 'legacy'
   }
   use 'akinsho/toggleterm.nvim'
-  use 'idanarye/vim-merginal'
+  use {
+    'nvim-telescope/telescope-file-browser.nvim',
+    requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
