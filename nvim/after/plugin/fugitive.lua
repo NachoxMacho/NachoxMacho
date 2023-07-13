@@ -13,7 +13,7 @@ local function findGitWindow()
 end
 
 local function openGit()
-    vim.cmd(':Git!') -- Open small window of git at the below
+    vim.cmd(':Git') -- Open small window of git at the below
 end
 
 local function closeGit()
@@ -54,22 +54,3 @@ end, { desc = 'Stage current file and commit' })
 vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<cr>', { desc = 'Switch Branch'})
 vim.keymap.set('n', '<leader>gl', ':Telescope git_commits<cr>', { desc = 'Search Commit Log'})
 
-local NachoxMacho_Fugutive = vim.api.nvim_create_augroup("NachoxMacho_Fugutive", {})
-
-local autocmd = vim.api.nvim_create_autocmd
-autocmd("BufWinEnter", {
-    group = NachoxMacho_Fugutive,
-    pattern = "*",
-    callback = function()
-        if vim.bo.ft ~= "fugitive" then
-            return
-        end
-
-        local bufnr = vim.api.nvim_get_current_buf()
-        local opts = {buffer = bufnr, remap = false}
-
-        -- NOTE: It allows me to easily set the branch i am pushing and any tracking
-        -- needed if i did not set the branch up correctly
-        -- vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
-    end,
-})
