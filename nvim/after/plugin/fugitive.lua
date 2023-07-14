@@ -29,14 +29,13 @@ local function toggleGit()
     if gitWindow == false then
         openGit()
     else
-        -- closeGit()
         vim.api.nvim_win_close(gitWindow, true)
     end
 end
 
 local function gitCommit()
     vim.cmd(':Git diff --cached')
-    vim.cmd(':redraw')
+    vim.cmd(':redraw') -- Need this so the window appears before input
     local message = vim.fn.input('Message > ')
     if message ~= nil and message ~= '' then
         vim.cmd(':Git commit -m "' .. message .. '"')
@@ -49,7 +48,7 @@ end
 vim.keymap.set('n', '<leader>gs', toggleGit, { desc = 'Open Git Status'})
 vim.keymap.set('n', '<leader>gc', gitCommit, { desc = 'Commit' })
 vim.keymap.set('n', '<leader>gd', ':vert Gdiff HEAD<cr>', { desc = 'Diff current file' })
-vim.keymap.set('n', '<leader>gf', function ()
+vim.keymap.set('n', '<leader>gg', function ()
     local curFile = vim.api.nvim_buf_get_name(0)
     vim.cmd(':Git add ' .. curFile)
     gitCommit()
