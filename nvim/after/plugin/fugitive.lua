@@ -35,12 +35,15 @@ local function toggleGit()
 end
 
 local function gitCommit()
+    vim.cmd(':Git diff --cached')
+    vim.cmd(':redraw')
     local message = vim.fn.input('Message > ')
     if message ~= nil and message ~= '' then
         vim.cmd(':Git commit -m "' .. message .. '"')
     else
         vim.print('No commit made, empty message')
     end
+    vim.api.nvim_win_close(0, true)
 end
 
 vim.keymap.set('n', '<leader>gs', toggleGit, { desc = 'Open Git Status'})
@@ -53,4 +56,5 @@ vim.keymap.set('n', '<leader>gf', function ()
 end, { desc = 'Stage current file and commit' })
 vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<cr>', { desc = 'Switch Branch'})
 vim.keymap.set('n', '<leader>gl', ':Telescope git_commits<cr>', { desc = 'Search Commit Log'})
+
 
