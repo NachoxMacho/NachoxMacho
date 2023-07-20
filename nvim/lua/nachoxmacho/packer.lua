@@ -93,7 +93,7 @@ return require('packer').startup(function(use)
   use 'RRethy/vim-illuminate'
   use 'mhartington/formatter.nvim'
   use 'm4xshen/autoclose.nvim'
-  use 'smolck/command-completion.nvim'
+  use 'gelguy/wilder.nvim'
   use {
       'j-hui/fidget.nvim',
       tag = 'legacy'
