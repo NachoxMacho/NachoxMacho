@@ -13,7 +13,7 @@ end
 
 local function closeGit()
     local gitWindow = findGitWindow()
-    if gitWindow ~= nil then
+    if gitWindow ~= false then
         vim.api.nvim_win_close(gitWindow, true)
     end
     return gitWindow ~= nil
