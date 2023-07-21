@@ -22,7 +22,6 @@ local cmp = require('cmp')
 local actions = require('lsp-zero').cmp_action()
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<enter>'] = cmp.mapping.confirm({ select = true }),
-  ['<C-space>'] = actions.toggle_completion(),
   ['<C-k>'] = actions.toggle_completion(),
   ['<C-f>'] = cmp.mapping.close(),
 })
