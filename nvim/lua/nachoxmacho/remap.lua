@@ -13,6 +13,12 @@ vim.keymap.set("v", "<A-down>", ":m '>+1<CR>gv=gv", { desc = 'Move selection dow
 vim.keymap.set('i', '<A-up>', '<Esc>:m -2 <enter>i', { desc = 'Move line up' })
 vim.keymap.set('i', '<A-down>', '<Esc>:m +1 <enter>i', { desc = 'Move line down' })
 
+vim.keymap.set('i', '<A-S-up>', '<Esc>:t-1<cr>a', { desc = 'Copy line up'})
+vim.keymap.set({'n', 'v'}, '<A-S-up>', ':t-1<cr>', { desc = 'Copy line up'})
+
+vim.keymap.set('i', '<A-S-down>', '<Esc>:t.<cr>a', { desc = 'Copy line down'})
+vim.keymap.set({'n', 'v'}, '<A-S-down>', ':t.<cr>', { desc = 'Copy line down'})
+
 vim.keymap.set('t', '<C-S-left>', '<Esc><C-w><left>', { desc = 'Window Focus Left' })
 vim.keymap.set('t', '<C-S-right>', '<Esc><C-w><right>', { desc = 'Window Focus Right' })
 vim.keymap.set('t', '<C-S-up>', '<Esc><C-w><up>', { desc = 'Window Focus Up' })
@@ -39,8 +45,11 @@ vim.keymap.set('i', '<C-down>', '<C-d>zz', { desc = 'Page Down' })
 vim.keymap.set('v', '<C-up>', '<C-u>zz', { desc = 'Page Up' })
 vim.keymap.set('v', '<C-down>', '<C-d>zz', { desc = 'Page Down' })
 
-vim.keymap.set('v', '>', '>gv', { desc = 'Indent' })
-vim.keymap.set('v', '<', '<gv', { desc = 'De-indent' })
+vim.keymap.set('n', '<tab>', ':.><cr>')
+vim.keymap.set('n', '<s-tab>', ':.<<cr>')
+
+vim.keymap.set('v', '<tab>', '>gv', { desc = 'Indent' })
+vim.keymap.set('v', '<s-tab>', '<gv', { desc = 'De-indent' })
 
 local diagnostics_active = true
 vim.keymap.set('n', '<leader>d', function()

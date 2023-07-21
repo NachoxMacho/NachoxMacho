@@ -25,14 +25,10 @@ lsp.nvim_workspace()
 local cmp = require('cmp')
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<enter>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-space>"] = cmp.mapping.complete(),
+  ['<C-k>'] = cmp.mapping.complete(),
+  ['<C-f>'] = cmp.mapping.close(),
 })
 
-if vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 or vim.fn.has('win16') == 1 then
-    cmp_mappings['<C-k>'] = cmp.mapping.complete()
-else
-    cmp_mappings['<C-Space>'] = cmp.mapping.complete()
-end
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
@@ -54,13 +50,13 @@ lsp.on_attach(function(client, bufnr)
 
   vim.keymap.set("n", "<leader>nd", function() vim.lsp.buf.definition() end, { remap = false, buffer = bufnr, desc = 'Go to Definition' })
   vim.keymap.set("n", "<leader>nh", function() vim.lsp.buf.hover() end, { remap = false, buffer = bufnr, desc = 'Open Hover' })
-  vim.keymap.set("n", "<leader>nd", function() vim.lsp.buf.workspace_symbol() end, { remap = false, buffer = bufnr, desc = 'Workspace Symbol' })
-  vim.keymap.set("n", "<leader>nd", function() vim.lsp.buf.open_float() end, { remap = false, buffer = bufnr, desc = 'Open Float' })
-  vim.keymap.set("n", "<leader>nd", function() vim.lsp.buf.goto_next() end, { remap = false, buffer = bufnr, desc = 'Go to Next' })
-  vim.keymap.set("n", "<leader>nd", function() vim.lsp.buf.goto_prev() end, { remap = false, buffer = bufnr, desc = 'Go to Previous' })
-  vim.keymap.set("n", "<leader>nd", function() vim.lsp.buf.code_action() end, { remap = false, buffer = bufnr, desc = 'Code Actions' })
-  vim.keymap.set("n", "<leader>nd", function() vim.lsp.buf.references() end, { remap = false, buffer = bufnr, desc = 'Open References' })
-  vim.keymap.set("n", "<leader>nd", function() vim.lsp.buf.rename() end, { remap = false, buffer = bufnr, desc = 'Rename' })
+  vim.keymap.set("n", "<leader>ns", function() vim.lsp.buf.workspace_symbol() end, { remap = false, buffer = bufnr, desc = 'Workspace Symbol' })
+  vim.keymap.set("n", "<leader>nf", function() vim.lsp.buf.open_float() end, { remap = false, buffer = bufnr, desc = 'Open Float' })
+  vim.keymap.set("n", "<leader>nn", function() vim.lsp.buf.goto_next() end, { remap = false, buffer = bufnr, desc = 'Go to Next' })
+  vim.keymap.set("n", "<leader>np", function() vim.lsp.buf.goto_prev() end, { remap = false, buffer = bufnr, desc = 'Go to Previous' })
+  vim.keymap.set("n", "<leader>na", function() vim.lsp.buf.code_action() end, { remap = false, buffer = bufnr, desc = 'Code Actions' })
+  vim.keymap.set("n", "<leader>ne", function() vim.lsp.buf.references() end, { remap = false, buffer = bufnr, desc = 'Open References' })
+  vim.keymap.set("n", "<leader>nr", function() vim.lsp.buf.rename() end, { remap = false, buffer = bufnr, desc = 'Rename' })
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { remap = false, buffer = bufnr, desc = 'Signature Help' })
 end)
 
