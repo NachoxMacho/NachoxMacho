@@ -43,4 +43,5 @@ sudo apt install openscad
 
 # Tmux
 sudo apt install tmux
+mkdir ~/.config/tmux
 ln -s "$(pwd)/tmux/tmux.conf" "${HOME}/.config/tmux/tmux.conf"
