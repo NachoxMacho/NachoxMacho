@@ -39,6 +39,7 @@ local function gitCacheView()
 end
 
 local function gitCommit()
+    closeGit()
     vim.cmd(':Git diff --cached')
     vim.cmd(':redraw') -- Need this so the window appears before input
     local message = vim.fn.input('Message > ')
