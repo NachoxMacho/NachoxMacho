@@ -51,3 +51,7 @@ vim.keymap.set('n', '<leader>d', function()
     vim.diagnostic.hide()
   end
 end)
+
+-- remap formatting
+
+vim.keymap.set('n', '<leader>nf', '=ap', { desc = 'Format block' })
