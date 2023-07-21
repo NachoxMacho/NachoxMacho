@@ -23,6 +23,7 @@ local actions = require('lsp-zero').cmp_action()
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<enter>'] = cmp.mapping.confirm({ select = true }),
   ['<C-space>'] = actions.toggle_completion(),
+  ['<C-k>'] = actions.toggle_completion(),
   ['<C-f>'] = cmp.mapping.close(),
 })
 
@@ -45,7 +46,6 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(client, bufnr)
-
   vim.keymap.set("n", "<leader>nd", function() vim.lsp.buf.definition() end, { remap = false, buffer = bufnr, desc = 'Go to Definition' })
   vim.keymap.set("n", "<leader>nh", function() vim.lsp.buf.hover() end, { remap = false, buffer = bufnr, desc = 'Open Hover' })
   vim.keymap.set("n", "<leader>ns", function() vim.lsp.buf.workspace_symbol() end, { remap = false, buffer = bufnr, desc = 'Workspace Symbol' })
@@ -65,7 +65,4 @@ vim.diagnostic.config({
     virtual_text = true
 })
 
-vim.o.updatetime = 250
-vim.cmd([[
-    autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus=false })
-]])
+vim.keymap.set('n', '<leader>nq', function() vim.diagnostic.open_float(nil, {focus=false}) end, { desc = 'Open Diag'})
