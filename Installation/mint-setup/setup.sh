@@ -40,3 +40,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
 # OpenSCAD
 sudo apt install openscad
+
+# Tmux
+sudo apt install tmux
+ln -s "$(pwd)/tmux/tmux.conf" "${HOME}/.config/tmux/tmux.conf"

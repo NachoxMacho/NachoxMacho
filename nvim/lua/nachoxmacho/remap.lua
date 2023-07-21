@@ -22,6 +22,7 @@ vim.keymap.set({'n', 'v'}, '<A-S-down>', ':t.<cr>', { desc = 'Copy line down'})
 vim.keymap.set('n', '<C-S-left>', ':bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<C-S-right>', ':bprevious<cr>', { desc = 'Prev buffer'})
 vim.keymap.set('n', '<C-x>', ':bd<cr>', { desc = 'Close buffer' })
+vim.keymap.set('n', '<C-S-x>', '<C-w>o', { desc = 'Close Other windows'})
 
 vim.keymap.set('i', '<C-left>', '<Esc>:bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('i', '<C-right>', '<Esc>:bnext<cr>', { desc = 'Previous buffer' })
@@ -34,6 +35,11 @@ vim.keymap.set('n', '<s-tab>', ':.<<cr>')
 
 vim.keymap.set('v', '<tab>', '>gv', { desc = 'Indent' })
 vim.keymap.set('v', '<s-tab>', '<gv', { desc = 'De-indent' })
+
+vim.keymap.set('n', '<C-p>', '"*p', { desc = 'Star Paste' })
+vim.keymap.set('n', '<leader>p', '"0p', { desc = 'Last yank' })
+
+vim.keymap.set('v', '<leader>y', '"+y', { desc = 'System Copy'})
 
 local diagnostics_active = true
 vim.keymap.set('n', '<leader>d', function()
