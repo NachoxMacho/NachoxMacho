@@ -5,6 +5,9 @@ ln -s "$(pwd)/.vscode/keybindings.json" "${HOME}/.config/VSCodium/User/keybindin
 # Setup NeoVim settings
 ln -s "$(pwd)/nvim" "${HOME}/.config/nvim"
 
+# Install NeoVim
+sudo apt install neovim
+
 # Install Catppucin Theme
 unzip "$(pwd)/packages/Themes/Catppuccin-Mocha-Standard-Maroon-Dark.zip" -d "${HOME}/.themes"
 mkdir "${HOME}/.config"
@@ -24,6 +27,13 @@ gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Mocha-Standard-Ma
 # Install standard packages
 # Git
 sudo apt install git
+sudo apt install gpg
+
+# Git Setup
+gpg --full-generate-key
+gpg --list-secret-keys --keyid-format=long
+pass init "<key-id>"
+git config --global credential.credentialStore gpg
 
 # NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
