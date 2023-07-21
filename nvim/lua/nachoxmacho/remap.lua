@@ -45,8 +45,11 @@ vim.keymap.set('i', '<C-down>', '<C-d>zz', { desc = 'Page Down' })
 vim.keymap.set('v', '<C-up>', '<C-u>zz', { desc = 'Page Up' })
 vim.keymap.set('v', '<C-down>', '<C-d>zz', { desc = 'Page Down' })
 
-vim.keymap.set('v', '>', '>gv', { desc = 'Indent' })
-vim.keymap.set('v', '<', '<gv', { desc = 'De-indent' })
+vim.keymap.set('n', '<tab>', ':.><cr>')
+vim.keymap.set('n', '<s-tab>', ':.<<cr>')
+
+vim.keymap.set('v', '<tab>', '>gv', { desc = 'Indent' })
+vim.keymap.set('v', '<s-tab>', '<gv', { desc = 'De-indent' })
 
 local diagnostics_active = true
 vim.keymap.set('n', '<leader>d', function()
