@@ -1,5 +1,5 @@
+vim.g.mapleader = ' '
 
-vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>s", ":update<cr>", { desc = 'Save File' } )
 vim.keymap.set('n', '<leader>q', ':q<cr>', { desc = 'Quit File (No Save)' } )
 vim.keymap.set('n', '<leader>w', '<c-w>', { desc = 'Window Mode' } )
@@ -23,6 +23,11 @@ vim.keymap.set('n', '<C-S-left>', ':bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<C-S-right>', ':bprevious<cr>', { desc = 'Prev buffer'})
 vim.keymap.set('n', '<C-x>', ':bd<cr>', { desc = 'Close buffer' })
 vim.keymap.set('n', '<C-S-x>', '<C-w>o', { desc = 'Close Other windows'})
+
+vim.keymap.set({'n', 'i' }, '<C-left>', '<Esc><C-w><left>', { desc = 'Window Focus Left' })
+vim.keymap.set({'n', 'i' }, '<C-right>', '<Esc><C-w><right>', { desc = 'Window Focus Right' })
+vim.keymap.set({'n', 'i' }, '<C-up>', '<Esc><C-w><up>', { desc = 'Window Focus Up' })
+vim.keymap.set({'n', 'i' }, '<C-down>', '<Esc><C-w><down>', { desc = 'Window Focus Down' })
 
 vim.keymap.set('i', '<C-left>', '<Esc>:bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('i', '<C-right>', '<Esc>:bnext<cr>', { desc = 'Previous buffer' })

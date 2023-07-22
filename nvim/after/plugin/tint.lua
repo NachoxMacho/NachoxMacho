@@ -1,2 +1,0 @@
-require('tint').setup({
-})

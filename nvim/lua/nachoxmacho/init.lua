@@ -1,4 +1,3 @@
-require("nachoxmacho.packer")
-require("nachoxmacho.remap")
 require("nachoxmacho.set")
-require('nachoxmacho.utility')
+require("nachoxmacho.lazy")
+require("nachoxmacho.remap")

@@ -1,6 +1,3 @@
-vim.keymap.set('n', '<leader>gp', ':Git push<cr>', { desc = 'Git Push' })
-vim.keymap.set('n', '<leader>gu', ':Git pull<cr>', { desc = 'Git Pull' })
-
 require('nachoxmacho.utility')
 
 local function findGitWindow()
@@ -59,17 +56,25 @@ local function gitAddCurrentFile()
     vim.cmd(':Git add ' .. curFile)
 end
 
-
-vim.keymap.set('n', '<leader>gs', toggleGit, { desc = 'Open Git Status' })
-vim.keymap.set('n', '<leader>ga', gitAddCurrentFile, { desc = 'Add current file' })
-vim.keymap.set('n', '<leader>gc', gitCommit, { desc = 'Commit' })
-vim.keymap.set('n', '<leader>gd', ':vert Gdiff HEAD<cr>', { desc = 'Diff current file' })
-vim.keymap.set('n', '<leader>gg', function()
+local function gitCommitCurrentFile()
     gitAddCurrentFile()
     if gitCommit() then
         vim.cmd(':Git push')
     end
-end, { desc = 'Stage current file and commit' })
-vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<cr>', { desc = 'Switch Branch' })
-vim.keymap.set('n', '<leader>gl', ':Telescope git_commits<cr>', { desc = 'Search Commit Log' })
-vim.keymap.set('n', '<leader>gt', gitCacheView, { desc = 'Preview commit' })
+end
+
+return {
+    'tpope/vim-fugitive',
+    keys = {
+        { '<leader>gp', ':Git push<cr>', desc = 'Push' },
+        { '<leader>gu', ':Git pull<cr>', desc = 'Pull' },
+        { '<leader>gs', toggleGit, desc = 'Status' },
+        { '<leader>ga', gitAddCurrentFile, desc = 'Add current file' },
+        { '<leader>gd', ':vert Gdiff HEAD<cr>', desc = 'Diff current file' },
+        { '<leader>gg', gitCommitCurrentFile, desc = 'Commit current file' },
+        { '<leader>gc', gitCommit, desc = 'Commit' },
+        { '<leader>gb', ':Telescope git_branches<cr>', desc = 'Branches' },
+        { '<leader>gl', ':Telescope git_commits<cr>', desc = 'Commit List' },
+        { '<leader>gt', gitCacheView, desc = 'Staged' },
+    }
+}
