@@ -49,6 +49,9 @@ vim.keymap.set('v', '<leader>y', '"+y', { desc = 'System Copy'})
 vim.keymap.set('n', '<leader>mf', ':%s/', { desc = 'Replace in current file' })
 vim.keymap.set('n', '<leader>mc', ':s//g<left><left>', { desc = 'Replace in current file' })
 
+vim.keymap.set('n', '<leader>fc', ':e %:h/',{  desc = 'Create File' })
+vim.keymap.set('n', '<leader>fn', ':e ', { desc = 'Create File' })
+
 local diagnostics_active = true
 vim.keymap.set('n', '<leader>d', function()
   diagnostics_active = not diagnostics_active
