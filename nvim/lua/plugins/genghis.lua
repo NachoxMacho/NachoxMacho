@@ -14,8 +14,8 @@ return {
     config = function ()
         -- required setup for cmp, somewhere after your main cmp-config
         local cmp = require('cmp')
-        cmp.setup.filetype('DressngInput', {
-            sources = cmp.confg.sources { {name = 'omni'} },
+        cmp.setup.filetype('DressingInput', {
+            sources = cmp.config.sources { {name = 'omni'} },
         })
     end
 }
