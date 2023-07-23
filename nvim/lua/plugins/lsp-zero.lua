@@ -90,7 +90,7 @@ return {
             },
         })
 
-        lsp.on_attach(function(client, bufnr)
+        lsp.on_attach(function(_, bufnr)
             vim.keymap.set("n", "<leader>nd", function() vim.lsp.buf.definition() end, { remap = false, buffer = bufnr, desc = 'Go to Definition' })
             vim.keymap.set("n", "<leader>nh", function() vim.lsp.buf.hover() end, { remap = false, buffer = bufnr, desc = 'Open Hover' })
             vim.keymap.set("n", "<leader>ns", function() vim.lsp.buf.workspace_symbol() end, { remap = false, buffer = bufnr, desc = 'Workspace Symbol' })
