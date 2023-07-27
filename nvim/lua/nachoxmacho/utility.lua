@@ -9,3 +9,22 @@ function FindWindow(variableName)
     end
     return false
 end
+
+local function makeDir(args)
+    local s, index = string.find(args.file, '.*/')
+    local dir = string.sub(args.file, 0, index - 1)
+    vim.print(dir)
+    if vim.fs.find(dir) == 1 then
+        return
+    end
+    if vim.fn.isdirectory(dir) then
+        vim.fn.mkdir(dir, 'p')
+    end
+end
+
+vim.api.nvim_create_autocmd(
+    { 'BufNewFile', 'BufWritePre' },
+    {
+        callback = makeDir
+    }
+)
