@@ -11,7 +11,7 @@ function FindWindow(variableName)
 end
 
 local function makeDir(args)
-    local s, index = string.find(args.file, '.*/')
+    local _, index = string.find(args.file, '.*/')
     local dir = string.sub(args.file, 0, index - 1)
     vim.print(dir)
     if vim.fs.find(dir) == 1 then
