@@ -37,6 +37,7 @@ gpg --full-generate-key
 gpg --list-secret-keys --keyid-format=long
 pass init "<key-id>"
 git config --global credential.credentialStore gpg
+gpg --armer --export "<key-id>"
 
 # NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
