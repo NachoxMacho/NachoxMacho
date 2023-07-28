@@ -10,14 +10,9 @@ function FindWindow(variableName)
     return false
 end
 
-local function makeDir(args)
-    local _, index = string.find(args.file, '.*/')
-    local dir = string.sub(args.file, 0, index - 1)
-    vim.print(dir)
-    if vim.fs.find(dir) == 1 then
-        return
-    end
-    if vim.fn.isdirectory(dir) then
+local function makeDir(_)
+    local dir = vim.fn.expand('<afile>:p:h')
+    if vim.fn.isdirectory(dir) == 0 then
         vim.fn.mkdir(dir, 'p')
     end
 end
