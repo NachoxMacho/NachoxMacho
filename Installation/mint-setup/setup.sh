@@ -10,6 +10,7 @@ sudo apt install neovim
 
 # Needed for telescope in nvim
 sudo apt install ripgrep
+sudo apt install gcc
 
 # Install Catppucin Theme
 unzip "$(pwd)/packages/Themes/Catppuccin-Mocha-Standard-Maroon-Dark.zip" -d "${HOME}/.themes"
