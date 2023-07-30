@@ -77,6 +77,10 @@ return {
                 { name = 'buffer' },
                 { name = 'path' }
             },
+            view = {
+                entries = 'custom',
+                selection_order = 'near_cursor'
+            },
             mapping = cmp_mappings
         })
 
