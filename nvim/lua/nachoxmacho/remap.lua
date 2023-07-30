@@ -35,11 +35,17 @@ vim.keymap.set('i', '<C-right>', '<Esc>:bnext<cr>', { desc = 'Previous buffer' }
 vim.keymap.set({'n', 'i', 'v'}, '<C-S-up>', '<C-u>zz', { desc = 'Page Up' })
 vim.keymap.set({'n', 'i', 'v'}, '<C-S-down>', '<C-d>zz', { desc = 'Page Down' })
 
-vim.keymap.set('n', '<tab>', ':.><cr>')
-vim.keymap.set('n', '<s-tab>', ':.<<cr>')
+vim.keymap.set('n', '<PageUp>', '<C-u>zz')
+vim.keymap.set('n', '<PageDown>', '<C-d>zz')
 
-vim.keymap.set('v', '<tab>', '>gv', { desc = 'Indent' })
-vim.keymap.set('v', '<s-tab>', '<gv', { desc = 'De-indent' })
+vim.keymap.set('n', '<Home>', '^')
+vim.keymap.set('n', '<End>', '$')
+
+vim.keymap.set('n', '<tab>', '<Nop>', { desc = 'Do nothing'})
+vim.keymap.set('x', '<tab>', '<Nop>', { desc = 'Do nothing'})
+
+vim.keymap.set('n', '<leader>>', ':.><cr>')
+vim.keymap.set('n', '<leader><', ':.<<cr>')
 
 vim.keymap.set('n', '<C-p>', '"*p', { desc = 'Star Paste' })
 vim.keymap.set('n', '<leader>p', '"0p', { desc = 'Last yank' })
