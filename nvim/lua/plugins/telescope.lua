@@ -3,7 +3,7 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim'},
     tag = '0.1.2',
     config = function ()
-        require('telescope').setup()
+        require('telescope').setup({})
     end,
     keys = {
         { '<leader>ff', ':Telescope find_files<cr>', desc = 'Files' },
