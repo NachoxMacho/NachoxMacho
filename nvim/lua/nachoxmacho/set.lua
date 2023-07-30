@@ -49,4 +49,13 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
 
+vim.opt.mouse = 'a'
+
+-- When breaking a line, indent the following line
+vim.opt.breakindent = true
+
+vim.opt.updatetime = 250
+
+vim.opt.completeopt = 'menuone,noselect'
+
 vim.g.mapleader = " "
