@@ -37,7 +37,9 @@ end
 
 local function gitCommit()
     closeGit()
-    vim.cmd(':Git diff --cached')
+    if FindWindow('git_diff') == false then
+        vim.cmd(':Git diff --cached')
+    end
     vim.cmd(':redraw') -- Need this so the window appears before input
     local message = vim.fn.input('Message > ')
     local commit = false
