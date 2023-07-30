@@ -43,6 +43,7 @@ vim.keymap.set('n', '<End>', '$')
 
 vim.keymap.set('n', '<tab>', '<Nop>', { desc = 'Do nothing'})
 vim.keymap.set('x', '<tab>', '<Nop>', { desc = 'Do nothing'})
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 vim.keymap.set('n', '<leader>>', ':.><cr>')
 vim.keymap.set('n', '<leader><', ':.<<cr>')
