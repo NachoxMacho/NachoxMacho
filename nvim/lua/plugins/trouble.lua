@@ -9,7 +9,7 @@ return {
     },
     keys = {
         { '<leader>nxx', '<cmd>TroubleToggle quickfix<cr>', mode = 'n', desc = 'Quick Fix' },
-        { '<leader>nxd', '<cmd>TroubleToggle quickfix<cr>', mode = 'n', desc = 'Document problems' },
-        { '<leader>nxw', '<cmd>TroubleToggle quickfix<cr>', mode = 'n', desc = 'Workspace problems' }
+        { '<leader>nxd', '<cmd>TroubleToggle document_diagnostics<cr>', mode = 'n', desc = 'Document problems' },
+        { '<leader>nxw', '<cmd>TroubleToggle workspace_diagnostics<cr>', mode = 'n', desc = 'Workspace problems' }
     }
 }
