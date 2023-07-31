@@ -1,5 +1,8 @@
 return {
     'chrisgrieser/nvim-early-retirement',
     config = true,
-    event = 'VeryLazy'
+    event = 'VeryLazy',
+    opts = {
+        ignoreUnloadedBufs = true,
+    }
 }
