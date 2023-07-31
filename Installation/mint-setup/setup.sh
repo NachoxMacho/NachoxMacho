@@ -11,6 +11,7 @@ sudo apt install neovim
 # Needed for telescope in nvim
 sudo apt install ripgrep
 sudo apt install gcc
+sudo apt install make
 
 # Install Catppucin Theme
 unzip "$(pwd)/packages/Themes/Catppuccin-Mocha-Standard-Maroon-Dark.zip" -d "${HOME}/.themes"
@@ -40,6 +41,9 @@ pass init "<key-id>"
 git config --global credential.credentialStore gpg
 gpg --armor --export "<key-id>"
 
+git config --global user.name 'Rob Owens'
+git config --global user.email 'email'
+
 # NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
@@ -47,6 +51,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 sudo apt install openscad
 
 # Tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo apt install tmux
 mkdir ~/.config/tmux
 ln -s "$(pwd)/tmux/tmux.conf" "${HOME}/.config/tmux/tmux.conf"
