@@ -10,6 +10,6 @@ return {
         })
     end,
     cond = function()
-        return vim.fn.executable 'ranger' == 1
+        return vim.fn.executable('ranger') == 1
     end,
 }
