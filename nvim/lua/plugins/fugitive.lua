@@ -77,6 +77,7 @@ return {
         { '<leader>gc', gitCommit, desc = 'Commit' },
         { '<leader>gb', ':Telescope git_branches<cr>', desc = 'Branches' },
         { '<leader>gl', ':Telescope git_commits<cr>', desc = 'Commit List' },
+        { '<leader>gq', ':Telescope git_bcommits<cr>', desc = 'Commit List' },
         { '<leader>gt', gitCacheView, desc = 'Staged' },
     }
 }
