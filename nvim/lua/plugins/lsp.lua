@@ -75,7 +75,18 @@ return {
         end
 
         local servers = {
-            azure_pipelines_ls = {},
+            azure_pipelines_ls = {
+                yaml = {
+                    schemas = {
+                        ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
+                            "/azure-pipeline*.y*l",
+                            "/*.azure*",
+                            "Azure-Pipelines/**/*.y*l",
+                            "[Pp]ipelines/*.y*l",
+                        }
+                    }
+                }
+            },
             clangd = {},
             dockerls = {},
             docker_compose_language_service = {},
@@ -106,14 +117,14 @@ return {
         }
 
         mason_lspconfig.setup_handlers {
-          function(server_name)
-            require('lspconfig')[server_name].setup {
-              capabilities = capabilities,
-              on_attach = on_attach,
-              settings = servers[server_name],
-              filetypes = (servers[server_name] or {}).filetypes,
-            }
-          end
+            function(server_name)
+                require('lspconfig')[server_name].setup {
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                    settings = servers[server_name],
+                    filetypes = (servers[server_name] or {}).filetypes,
+                }
+            end
         }
 
 
