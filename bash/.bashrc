@@ -1,0 +1,1 @@
+/home/e072502/.bashrc
