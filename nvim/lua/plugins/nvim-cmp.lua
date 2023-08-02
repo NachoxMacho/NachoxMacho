@@ -60,7 +60,8 @@ return {
                     local lspkind_ok, lspkind = pcall(require, "lspkind")
                     if not lspkind_ok then
                         -- From kind_icons array
-                        vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+                        -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+                        vim_item.kind = kind_icons[vim_item.kind]
                         -- Source
                         return vim_item
                     else
