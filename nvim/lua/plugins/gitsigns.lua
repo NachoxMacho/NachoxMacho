@@ -4,15 +4,13 @@ return {
     config = function()
         local gs = require('gitsigns')
         gs.setup({
-            opts = {
-                -- See `:help gitsigns.txt`
-                signs = {
-                    add = { text = '+' },
-                    change = { text = '~' },
-                    delete = { text = '_' },
-                    topdelete = { text = '‾' },
-                    changedelete = { text = '~' },
-                }
+            -- See `:help gitsigns.txt`
+            signs = {
+                add = { text = '+' },
+                change = { text = '~' },
+                delete = { text = '_' },
+                topdelete = { text = '‾' },
+                changedelete = { text = '~' },
             }
         })
         vim.keymap.set('n', '<leader>hs', gs.stage_hunk, { desc = 'Stage Chunk' })
