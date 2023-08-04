@@ -79,5 +79,7 @@ return {
         { '<leader>gl', ':Telescope git_commits<cr>', desc = 'Commit List' },
         { '<leader>gq', ':Telescope git_bcommits<cr>', desc = 'Commit List' },
         { '<leader>gt', gitCacheView, desc = 'Staged' },
+        { '<leader>gj', '<cmd>diffget //2<cr>', desc = 'Merge Left' },
+        { '<leader>gl', '<cmd>diffget //3<cr>', desc = 'Merge Right' },
     }
 }
