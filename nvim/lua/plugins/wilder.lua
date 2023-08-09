@@ -15,7 +15,7 @@ return {
                 border = 'rounded',
                 reverse = 1,
                 left = { ' ', wilder.popupmenu_devicons()},
-                right = { ' ', wilder.popupmenu_scrollbar()}
+                right = { ' '}
             })
             ),
             ['/'] = wilder.wildmenu_renderer({
