@@ -12,6 +12,7 @@ sudo apt install neovim
 sudo apt install ripgrep
 sudo apt install gcc
 sudo apt install make
+sudo apt install universal-ctags
 
 # Install Catppucin Theme
 unzip "$(pwd)/packages/Themes/Catppuccin-Mocha-Standard-Maroon-Dark.zip" -d "${HOME}/.themes"
