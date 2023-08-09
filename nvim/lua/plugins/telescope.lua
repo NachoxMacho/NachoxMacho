@@ -13,5 +13,6 @@ return {
         { '<leader>vh', ':Telescope help_tags<cr>', desc = 'Help' },
         { '<leader>fb', ':Telescope buffers<cr>', desc = 'Buffers' },
         { '<leader>fw', ':Telescope git_status<cr>', desc = 'Git Working Files (Status)' },
+        { '<leader>ft', '<cmd>Telescope tags<cr>', desc = 'Tags'}
     }
 }
