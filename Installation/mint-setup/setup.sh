@@ -14,6 +14,9 @@ sudo apt install gcc
 sudo apt install make
 sudo apt install universal-ctags
 
+# Ctags global ignore file
+ln -s "$(pwd)/ctags/global.ctags" "${HOME}/.config/global.ctags"
+
 # Install Catppucin Theme
 unzip "$(pwd)/packages/Themes/Catppuccin-Mocha-Standard-Maroon-Dark.zip" -d "${HOME}/.themes"
 mkdir "${HOME}/.config"
