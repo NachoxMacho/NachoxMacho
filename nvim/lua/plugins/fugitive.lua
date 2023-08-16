@@ -81,5 +81,6 @@ return {
         { '<leader>gt', gitCacheView, desc = 'Staged' },
         { '<leader>gj', '<cmd>diffget //2<cr>', desc = 'Merge Left' },
         { '<leader>gl', '<cmd>diffget //3<cr>', desc = 'Merge Right' },
+        { '<leader>gm', '<cmd>Gvdiffsplit!<cr>', desc = 'Merge'}
     }
 }
