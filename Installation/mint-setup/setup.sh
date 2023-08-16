@@ -45,6 +45,10 @@ gpg --armor --export "<key-id>"
 git config --global user.name 'Rob Owens'
 git config --global user.email 'email'
 
+# Git global ignore for vim tags
+mkdir "${HOME}/.config/git"
+ln -s "$(pwd)/git/ignore" "${HOME}/.config/git/ignore"
+
 # NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 

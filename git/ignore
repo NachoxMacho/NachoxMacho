@@ -1,0 +1,5 @@
+# Global .gitignore file
+
+# Repository Tag management files
+tags
+.gutctags
