@@ -88,3 +88,14 @@ curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --de
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt update
 sudo apt install kubectl
+
+# Install Pwsh
+# Save the public repository GPG keys
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --yes --dearmor --output /usr/share/keyrings/microsoft.gpg
+
+# Register the Microsoft Product feed
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye main" > /etc/apt/sources.list.d/microsoft.list'
+
+# Install PowerShell
+sudo apt update && sudo apt install -y powershell
+
