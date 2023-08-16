@@ -3,3 +3,4 @@
 --exclude=bin
 --exclude=.git
 --exclude=.vscode
+--exclude=.yarn
