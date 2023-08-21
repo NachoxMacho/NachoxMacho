@@ -81,6 +81,9 @@ ln -s "$(pwd)/bat/themes" "${HOME}/.config/bat/themes"
 ln -s "$(pwd)/bash/.bashrc" "${HOME}/.bashrc"
 ln -s "$(pwd)/bash/.bash_aliases" "${HOME}/.bash_aliases"
 
+# Zsh Setup
+ln -s "$(pwd)/zsh/.zshrc" "${HOME}/.zshrc"
+
 # Kubectl Setup
 sudo apt update
 sudo apt instaall ca-certificates curl
