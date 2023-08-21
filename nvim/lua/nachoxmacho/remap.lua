@@ -35,8 +35,8 @@ vim.keymap.set('i', '<C-S-right>', '<Esc><cmd>bnext<cr>', { desc = 'Previous buf
 vim.keymap.set({'n', 'i', 'v'}, '<C-S-up>', '<C-u>zz', { desc = 'Page Up' })
 vim.keymap.set({'n', 'i', 'v'}, '<C-S-down>', '<C-d>zz', { desc = 'Page Down' })
 
-vim.keymap.set('n', '<PageUp>', '<C-u>zz')
-vim.keymap.set('n', '<PageDown>', '<C-d>zz')
+vim.keymap.set('n', '<PageUp>', 'Hzz')
+vim.keymap.set('n', '<PageDown>', 'Lzz')
 
 vim.keymap.set('n', '<Home>', '^')
 vim.keymap.set('n', '<End>', '$')
