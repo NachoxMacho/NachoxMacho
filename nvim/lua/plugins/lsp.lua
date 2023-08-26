@@ -91,7 +91,7 @@ return {
             clangd = {},
             dockerls = {},
             docker_compose_language_service = {},
-            helm_ls = {},
+            helm_ls = { filetypes = { 'helm' } },
             html = { filetypes = { 'html' } },
             jsonls = {},
             lua_ls = {
@@ -127,6 +127,12 @@ return {
                 }
             end
         }
+        vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+            pattern = { '*/templates/*.yaml' },
+            callback = function ()
+                vim.opt_local.filetype = 'helm'
+            end
+        })
 
 
         vim.diagnostic.config({ virtual_text = true })
