@@ -77,6 +77,9 @@ mkdir "${HOME}/.config/bat"
 ln -s "$(pwd)/bat/config" "${HOME}/.config/bat/config"
 ln -s "$(pwd)/bat/themes" "${HOME}/.config/bat/themes"
 
+# JQ for JSON Previews
+sudo apt install jq
+
 # Bash Setup
 ln -s "$(pwd)/bash/.bashrc" "${HOME}/.bashrc"
 ln -s "$(pwd)/bash/.bash_aliases" "${HOME}/.bash_aliases"
