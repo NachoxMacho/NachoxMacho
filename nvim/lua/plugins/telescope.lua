@@ -7,8 +7,8 @@ return {
             defaults = {
                 mappings = {
                     i = {
-                        ["<C-s>"] = require('telescope.actions').cycle_previewers_next,
-                        ["<C-a>"] = require('telescope.actions').cycle_previewers_prev,
+                        ["<C-Right>"] = require('telescope.actions').cycle_previewers_next,
+                        ["<C-Left>"] = require('telescope.actions').cycle_previewers_prev,
                     }
                 }
             }
