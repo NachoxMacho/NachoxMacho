@@ -40,6 +40,8 @@ vim.keymap.set('n', '<PageDown>', 'Lzz')
 
 vim.keymap.set('n', '<Home>', '^')
 vim.keymap.set('n', '<End>', '$')
+vim.keymap.set('i', '<Home>', '<C-o>^')
+vim.keymap.set('i', '<End>', '<C-o>$')
 
 vim.keymap.set('n', '<tab>', '<Nop>', { desc = 'Do nothing'})
 vim.keymap.set('x', '<tab>', '<Nop>', { desc = 'Do nothing'})
