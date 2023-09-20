@@ -66,15 +66,24 @@ local function gitCommitCurrentFile()
 end
 
 local function gitSetUpstream()
-   local branchName = vim.fn.system('git branch --show-current')
-   vim.cmd(':Git push --set-upstream origin ' .. branchName)
+    local branchName = vim.fn.system('git branch --show-current')
+    vim.cmd(':Git push --set-upstream origin ' .. branchName)
+end
+
+local function gitPush()
+    local gitStatus = vim.cmd(':silent Git status -b --porcelain=v2')
+    if string.find(gitStatus, '# branch.upstream ', 0, true) then
+        vim.cmd(':Git push')
+    else
+        gitSetUpstream()
+    end
 end
 
 return {
     'tpope/vim-fugitive',
     keys = {
-        { '<leader>gp', ':Git push<cr>',               desc = 'Push' },
-        { '<leader>g=', gitSetUpstream,               desc = 'Push new branch' },
+        { '<leader>gp', gitPush,               desc = 'Push' },
+        { '<leader>g=', gitSetUpstream,                desc = 'Push new branch' },
         { '<leader>gu', ':Git pull<cr>',               desc = 'Pull' },
         { '<leader>gs', toggleGit,                     desc = 'Status' },
         { '<leader>ga', gitAddCurrentFile,             desc = 'Add current file' },
