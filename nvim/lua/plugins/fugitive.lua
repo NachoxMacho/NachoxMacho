@@ -65,22 +65,29 @@ local function gitCommitCurrentFile()
     end
 end
 
+local function gitSetUpstream()
+   local branchName = vim.fn.system('git branch --show-current')
+   vim.cmd(':Git push --set-upstream origin ' .. branchName)
+end
+
 return {
     'tpope/vim-fugitive',
     keys = {
-        { '<leader>gp', ':Git push<cr>', desc = 'Push' },
-        { '<leader>gu', ':Git pull<cr>', desc = 'Pull' },
-        { '<leader>gs', toggleGit, desc = 'Status' },
-        { '<leader>ga', gitAddCurrentFile, desc = 'Add current file' },
-        { '<leader>gd', ':vert Gdiff HEAD<cr>', desc = 'Diff current file' },
-        { '<leader>gg', gitCommitCurrentFile, desc = 'Commit current file' },
-        { '<leader>gc', gitCommit, desc = 'Commit' },
+        { '<leader>gp', ':Git push<cr>',               desc = 'Push' },
+        { '<leader>gP', gitSetUpstream,               desc = 'Push new branch' },
+        { '<leader>gu', ':Git pull<cr>',               desc = 'Pull' },
+        { '<leader>gs', toggleGit,                     desc = 'Status' },
+        { '<leader>ga', gitAddCurrentFile,             desc = 'Add current file' },
+        { '<leader>gd', ':vert Gdiff HEAD<cr>',        desc = 'Diff current file' },
+        { '<leader>gg', gitCommitCurrentFile,          desc = 'Commit current file' },
+        { '<leader>gc', gitCommit,                     desc = 'Commit' },
         { '<leader>gb', ':Telescope git_branches<cr>', desc = 'Branches' },
-        { '<leader>gl', ':Telescope git_commits<cr>', desc = 'Commit List' },
+        { '<leader>gl', ':Telescope git_commits<cr>',  desc = 'Commit List' },
         { '<leader>gq', ':Telescope git_bcommits<cr>', desc = 'Commit List' },
-        { '<leader>gt', gitCacheView, desc = 'Staged' },
-        { '<leader>gj', '<cmd>diffget //2<cr>', desc = 'Merge Left' },
-        { '<leader>gl', '<cmd>diffget //3<cr>', desc = 'Merge Right' },
-        { '<leader>gm', '<cmd>Gvdiffsplit!<cr>', desc = 'Merge'}
+        { '<leader>gt', gitCacheView,                  desc = 'Staged' },
+        { '<leader>gj', '<cmd>diffget //2<cr>',        desc = 'Merge Left' },
+        { '<leader>gl', '<cmd>diffget //3<cr>',        desc = 'Merge Right' },
+        { '<leader>gm', '<cmd>Gvdiffsplit!<cr>',       desc = 'Merge' },
+        { '<leader>gf', '<cmd>Git fetch --prune<cr>',  desc = 'Fetch & Prune' }
     }
 }
