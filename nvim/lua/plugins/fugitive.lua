@@ -74,7 +74,7 @@ return {
     'tpope/vim-fugitive',
     keys = {
         { '<leader>gp', ':Git push<cr>',               desc = 'Push' },
-        { '<leader>gP', gitSetUpstream,               desc = 'Push new branch' },
+        { '<leader>g=', gitSetUpstream,               desc = 'Push new branch' },
         { '<leader>gu', ':Git pull<cr>',               desc = 'Pull' },
         { '<leader>gs', toggleGit,                     desc = 'Status' },
         { '<leader>ga', gitAddCurrentFile,             desc = 'Add current file' },
