@@ -60,6 +60,8 @@ end
 
 local function gitPush()
     local gitStatus = vim.cmd(':silent Git status -b --porcelain=v2')
+    -- This will work, vim just thinks it won't because it's silent, even though we still get output
+    ---@diagnostic disable-next-line: param-type-mismatch
     if string.find(gitStatus, '# branch.upstream ', 0, true) then
         vim.cmd(':Git push')
     else
@@ -82,7 +84,7 @@ end
 return {
     'tpope/vim-fugitive',
     keys = {
-        { '<leader>gp', gitPush,               desc = 'Push' },
+        { '<leader>gp', gitPush,                       desc = 'Push' },
         { '<leader>gu', ':Git pull<cr>',               desc = 'Pull' },
         { '<leader>gs', toggleGit,                     desc = 'Status' },
         { '<leader>ga', gitAddCurrentFile,             desc = 'Add current file' },
