@@ -18,7 +18,7 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
 if vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 or vim.fn.has('win16') == 1 then
-    vim.opt.undodir = os.getenv('LocalAppData') .. '/nvim-data/undodir'
+    -- vim.opt.undodir = os.getenv('LocalAppData') .. '/nvim-data/undodir'
     local powershell_options = {
       shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
       shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
@@ -31,8 +31,8 @@ if vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 or vim.fn.has('win16') =
     for option, value in pairs(powershell_options) do
         vim.opt[option] = value
     end
-else
-    vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+-- else
+--     vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 end
 vim.opt.undofile = true
 

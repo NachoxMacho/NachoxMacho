@@ -5,7 +5,6 @@ return {
         require('telescope').setup({
             extensions = {
                 undo = {
-
                 }
             }
         })
