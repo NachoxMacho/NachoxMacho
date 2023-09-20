@@ -53,18 +53,6 @@ local function gitCommit()
     return commit
 end
 
-local function gitAddCurrentFile()
-    local curFile = vim.api.nvim_buf_get_name(0)
-    vim.cmd(':Git add ' .. curFile)
-end
-
-local function gitCommitCurrentFile()
-    gitAddCurrentFile()
-    if gitCommit() then
-        vim.cmd(':Git push')
-    end
-end
-
 local function gitSetUpstream()
     local branchName = vim.fn.system('git branch --show-current')
     vim.cmd(':Git push --set-upstream origin ' .. branchName)
@@ -79,11 +67,22 @@ local function gitPush()
     end
 end
 
+local function gitAddCurrentFile()
+    local curFile = vim.api.nvim_buf_get_name(0)
+    vim.cmd(':Git add ' .. curFile)
+end
+
+local function gitCommitCurrentFile()
+    gitAddCurrentFile()
+    if gitCommit() then
+        gitPush()
+    end
+end
+
 return {
     'tpope/vim-fugitive',
     keys = {
         { '<leader>gp', gitPush,               desc = 'Push' },
-        { '<leader>g=', gitSetUpstream,                desc = 'Push new branch' },
         { '<leader>gu', ':Git pull<cr>',               desc = 'Pull' },
         { '<leader>gs', toggleGit,                     desc = 'Status' },
         { '<leader>ga', gitAddCurrentFile,             desc = 'Add current file' },
