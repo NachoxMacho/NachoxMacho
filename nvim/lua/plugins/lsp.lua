@@ -127,13 +127,6 @@ return {
                 }
             end
         }
-        vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
-            pattern = { '*/templates/*.yaml' },
-            callback = function ()
-                vim.opt_local.filetype = 'helm'
-            end
-        })
-
 
         vim.diagnostic.config({ virtual_text = true })
         vim.keymap.set('n', '<leader>nq', function() vim.diagnostic.open_float(nil, { focus = false }) end,
