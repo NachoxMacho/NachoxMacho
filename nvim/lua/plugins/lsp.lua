@@ -100,7 +100,22 @@ return {
                     telemetry = { enable = false }
                 }
             },
-            powershell_es = {},
+            powershell_es = {
+                powershell = {
+                    codeFormatting = {
+                        Preset = 'OTBS',
+                        AutoCorrectAliases = true,
+                        AddWhitespaceAroundPipe = true,
+                        UseConstantStrings = true,
+                        UseCorrectCasing = true,
+                        PipelineIndentationStyle = 'IncreaseIndentationForFirstPipeline',
+                        WhitespaceAroundOperator = true,
+                        WhitespaceBeforeOpenBrace = true,
+                        WhitespaceBeforeOpenParen = true,
+                        WhitespaceInsideBrace = true,
+                    }
+                }
+            },
             tsserver = {},
             yamlls = {}
         }
