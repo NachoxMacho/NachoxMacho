@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 
 vim.keymap.set("n", "<leader>s", "<cmd>update<cr>", { desc = 'Save File' } )
 vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', { desc = 'Quit File (No Save)' } )
-vim.keymap.set('n', '<leader>w', '<c-w>', { desc = 'Window Mode' } )
+-- vim.keymap.set('n', '<leader>w', '<c-w>', { desc = 'Window Mode' } )
 
 vim.keymap.set("n", "<A-up>", "<cmd>m -2<CR>", { desc = 'Move selection up' })
 vim.keymap.set("n", "<A-down>", "<cmd>m +1<CR>", { desc = 'Move selection down' })
@@ -73,4 +73,4 @@ end)
 
 -- remap formatting
 
-vim.keymap.set('n', '<leader>nf', '=ap', { desc = 'Format block' })
+vim.keymap.set('n', '<leader>n=', '=ap', { desc = 'Format block' })
