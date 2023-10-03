@@ -108,3 +108,4 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] h
 # Install PowerShell
 sudo apt update && sudo apt install -y powershell
 
+sudo apt install zoxide

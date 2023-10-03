@@ -126,3 +126,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
+
+if [ -f /usr/bin/zoxide ]; then 
+    eval "$(zoxide init bash)"
+fi
