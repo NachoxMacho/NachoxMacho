@@ -130,3 +130,11 @@ export PATH=$PATH:$HOME/.pulumi/bin
 if [ -f /usr/bin/zoxide ]; then 
     eval "$(zoxide init bash)"
 fi
+
+# pnpm
+export PNPM_HOME="/home/e072502/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
