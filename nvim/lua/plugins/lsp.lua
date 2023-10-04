@@ -39,6 +39,10 @@ return {
                 { remap = false, buffer = bufnr, desc = 'Go to Next' })
             vim.keymap.set("n", "<leader>np", function() vim.lsp.buf.goto_prev() end,
                 { remap = false, buffer = bufnr, desc = 'Go to Previous' })
+            vim.keymap.set('n', '<leader>ni', function() vim.lsp.buf.implementation() end,
+                { remap = false, buffer = bufnr, desc = 'Implementations' })
+            vim.keymap.set('n', '<leader>nf', function() vim.lsp.buf.references() end,
+                { remap = false, buffer = bufnr, desc = 'References' })
             vim.keymap.set("n", "<leader>nr", function() vim.lsp.buf.rename() end,
                 { remap = false, buffer = bufnr, desc = 'Rename' })
             vim.keymap.set('n', '<leader>nt', function() vim.lsp.buf.format({ async = false, timeout_ms = 10000 }) end,
