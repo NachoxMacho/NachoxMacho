@@ -97,11 +97,13 @@ return {
             docker_compose_language_service = {},
             helm_ls = { filetypes = { 'helm' } },
             html = { filetypes = { 'html' } },
+            gopls = {},
             jsonls = {},
             lua_ls = {
                 Lua = {
                     workspace = { checkThirdParty = false },
-                    telemetry = { enable = false }
+                    telemetry = { enable = false },
+                    hint = { enable = true },
                 }
             },
             powershell_es = {
@@ -120,7 +122,20 @@ return {
                     }
                 }
             },
-            tsserver = {},
+            tsserver = {
+                typescript = {
+                    inlayHints = {
+                        includeInlayParameterNameHints = "all",
+                        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                        includeInlayVariableTypeHints = true,
+                        includeInlayFunctionParameterTypeHints = true,
+                        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+                        includeInlayPropertyDeclarationTypeHints = true,
+                        includeInlayFunctionLikeReturnTypeHints = true,
+                        includeInlayEnumMemberValueHints = true,
+                    }
+                },
+            },
             yamlls = {}
         }
 
