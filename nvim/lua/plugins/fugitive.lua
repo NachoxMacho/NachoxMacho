@@ -98,6 +98,7 @@ return {
         { '<leader>gj', '<cmd>diffget //2<cr>',        desc = 'Merge Left' },
         { '<leader>gl', '<cmd>diffget //3<cr>',        desc = 'Merge Right' },
         { '<leader>gm', '<cmd>Gvdiffsplit!<cr>',       desc = 'Merge' },
-        { '<leader>gf', '<cmd>Git fetch --prune<cr>',  desc = 'Fetch & Prune' }
+        { '<leader>gf', '<cmd>Git fetch --prune<cr>',  desc = 'Fetch & Prune' },
+        { '<leader>gn', ':Git checkout -b '},
     }
 }
