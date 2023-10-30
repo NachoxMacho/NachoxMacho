@@ -141,3 +141,7 @@ esac
 
 # go
 export PATH=$PATH:/usr/local/go/bin
+
+# rust
+. "$HOME/.cargo/env"
+
