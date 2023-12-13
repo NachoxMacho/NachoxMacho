@@ -1,0 +1,11 @@
+# Install NeoVim
+sudo snap install neovim --channel=edge
+
+# Needed for telescope in nvim
+sudo apt install ripgrep
+sudo apt install gcc
+sudo apt install make
+sudo apt install universal-ctags
+
+mkdir -p "${HOME}/.config"
+ln -s "$(pwd)/nvim" "${HOME}/.config/nvim"
