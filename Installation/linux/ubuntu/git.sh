@@ -1,6 +1,7 @@
 # Git
 sudo apt install git
 sudo apt install gpg
+sudo apt install pass
 
 # Git Setup
 gpg --full-generate-key

@@ -6,6 +6,8 @@ sudo apt install ripgrep
 sudo apt install gcc
 sudo apt install make
 sudo apt install universal-ctags
+sudo apt install unzip
+sudo apt install fd-find
 
 mkdir -p "${HOME}/.config"
 ln -s "$(pwd)/nvim" "${HOME}/.config/nvim"
