@@ -120,12 +120,15 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+if [ -d ~/.nvm ]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 # add Pulumi to the PATH
-export PATH=$PATH:$HOME/.pulumi/bin
+if [ -d ~/.pulumi/bin ]; then
+    export PATH=$PATH:$HOME/.pulumi/bin
+fi
 
 if [ -f /usr/bin/zoxide ]; then 
     eval "$(zoxide init bash)"
@@ -140,8 +143,12 @@ esac
 # pnpm end
 
 # go
-export PATH=$PATH:/usr/local/go/bin
+if [ -f /usr/local/go/bin/go ]; then
+    export PATH=$PATH:/usr/local/go/bin
+fi
 
 # rust
-. "$HOME/.cargo/env"
+if [ -f ~/.cargo/env ]; then
+    . "$HOME/.cargo/env"
+fi
 
