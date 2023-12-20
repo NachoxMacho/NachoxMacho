@@ -49,7 +49,7 @@ return {
                 { remap = false, buffer = bufnr, desc = 'Format' })
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end,
                 { remap = false, buffer = bufnr, desc = 'Signature Help' })
-            vim.keymap.set('n', '<leader>nj', '<cmd>e %:h/../../package.json<cr>', { desc = 'Open package file' })
+            -- vim.keymap.set('n', '<leader>nj', '<cmd>e %:h/../../package.json<cr>', { desc = 'Open package file' })
 
             -- nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
             -- nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
