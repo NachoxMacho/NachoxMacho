@@ -14,6 +14,8 @@ vim.opt.splitbelow = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
+vim.opt.endofline = false
+vim.opt.fixeol = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
