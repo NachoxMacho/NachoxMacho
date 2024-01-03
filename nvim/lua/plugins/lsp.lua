@@ -120,6 +120,10 @@ return {
                         WhitespaceBeforeOpenBrace = true,
                         WhitespaceBeforeOpenParen = true,
                         WhitespaceInsideBrace = true,
+                        AlignPropertyValuePairs = true,
+                        AvoidSemicolonsAsLineTerminators = true,
+                        WhitespaceBetweenParameters = true,
+                        IgnoreOneLineBlock = true,
                     }
                 }
             },
