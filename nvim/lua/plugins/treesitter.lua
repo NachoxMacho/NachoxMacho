@@ -7,6 +7,8 @@ return {
             ensure_installed = { 'vimdoc', 'javascript', 'typescript', 'c', 'lua', 'tsx' },
             sync_install = false,
             auto_install = true,
+            modules = {},
+            ignore_install = {},
             hightlight = {
                 enable =  true,
                 additional_vim_regex_highlighting = false,

@@ -95,6 +95,7 @@ return {
             clangd = {},
             dockerls = {},
             docker_compose_language_service = {},
+            eslint = {},
             helm_ls = { filetypes = { 'helm' } },
             html = { filetypes = { 'html' } },
             gopls = {},
@@ -122,6 +123,7 @@ return {
                     }
                 }
             },
+            tailwindcss = {},
             tsserver = {
                 typescript = {
                     inlayHints = {
