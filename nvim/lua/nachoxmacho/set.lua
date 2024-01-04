@@ -59,3 +59,10 @@ vim.opt.breakindent = true
 vim.opt.completeopt = 'menuone,noselect'
 
 vim.g.mapleader = " "
+
+vim.api.nvim_create_augroup("nachoxmacho", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "nachoxmacho",
+    pattern = "*",
+    command = [[%s/\s\+$//e]],
+})
