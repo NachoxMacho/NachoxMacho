@@ -12,6 +12,13 @@ return {
         },
         { 'williamboman/mason-lspconfig.nvim' }, -- Optional
         'folke/neodev.nvim',
+        {
+            'ray-x/go.nvim',
+            build = ':lua require("go.install").update_all_sync()',
+            dependencies = {
+                "ray-x/guihua.lua",
+            }
+        }
     },
     config = function()
         local on_attach = function(_, bufnr)
@@ -165,20 +172,28 @@ return {
         -- Ensure the servers above are installed
         local mason_lspconfig = require 'mason-lspconfig'
 
-        mason_lspconfig.setup {
+        mason_lspconfig.setup({
             ensure_installed = vim.tbl_keys(servers),
-        }
+        })
 
-        mason_lspconfig.setup_handlers {
+        require('go').setup({
+            lsp_cfg = true,
+            lsp_keymaps = function (bufnr) on_attach({}, bufnr) end,
+            trouble = true,
+            luasnip = true,
+        })
+        mason_lspconfig.setup_handlers({
             function(server_name)
-                require('lspconfig')[server_name].setup {
+                if server_name == 'gopls' then return end
+                require('lspconfig')[server_name].setup({
                     capabilities = capabilities,
                     on_attach = on_attach,
                     settings = servers[server_name],
                     filetypes = (servers[server_name] or {}).filetypes,
-                }
+                })
             end
-        }
+        })
+
 
         vim.diagnostic.config({ virtual_text = true, severity_sort = true, update_in_insert = true })
         vim.keymap.set('n', '<leader>nq', function() vim.diagnostic.open_float(nil, { focus = false }) end,

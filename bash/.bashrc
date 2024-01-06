@@ -105,7 +105,7 @@ if [ -d ~/.pulumi/bin ]; then
     export PATH=$PATH:$HOME/.pulumi/bin
 fi
 
-if [ -f /usr/bin/zoxide ]; then 
+if [ -f /usr/bin/zoxide ]; then
     eval "$(zoxide init bash)"
 fi
 
