@@ -35,10 +35,10 @@ return {
                 { remap = false, buffer = bufnr, desc = 'Open Hover' })
             vim.keymap.set("n", "<leader>ns", function() vim.lsp.buf.workspace_symbol() end,
                 { remap = false, buffer = bufnr, desc = 'Workspace Symbol' })
-            vim.keymap.set("n", "<leader>nn", function() vim.lsp.buf.goto_next() end,
-                { remap = false, buffer = bufnr, desc = 'Go to Next' })
-            vim.keymap.set("n", "<leader>np", function() vim.lsp.buf.goto_prev() end,
-                { remap = false, buffer = bufnr, desc = 'Go to Previous' })
+            -- vim.keymap.set("n", "<leader>nn", function() vim.lsp.buf.goto_next() end,
+            --     { remap = false, buffer = bufnr, desc = 'Go to Next' })
+            -- vim.keymap.set("n", "<leader>np", function() vim.lsp.buf.goto_prev() end,
+            --     { remap = false, buffer = bufnr, desc = 'Go to Previous' })
             vim.keymap.set('n', '<leader>ni', function() vim.lsp.buf.implementation() end,
                 { remap = false, buffer = bufnr, desc = 'Implementations' })
             vim.keymap.set('n', '<leader>nf', function() vim.lsp.buf.references() end,
