@@ -83,7 +83,7 @@ return {
         vim.api.nvim_create_autocmd(
             "BufWritePre",
             {
-                pattern = '*.tsx',
+                pattern = {'*.tsx', '*.go'},
                 group = 'AutoFormat',
                 callback = function()
                     vim.cmd('Format')
