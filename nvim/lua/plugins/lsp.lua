@@ -180,7 +180,7 @@ return {
             end
         }
 
-        vim.diagnostic.config({ virtual_text = true })
+        vim.diagnostic.config({ virtual_text = true, severity_sort = true, update_in_insert = true })
         vim.keymap.set('n', '<leader>nq', function() vim.diagnostic.open_float(nil, { focus = false }) end,
             { desc = 'Open Diag' })
     end
