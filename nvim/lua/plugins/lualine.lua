@@ -1,5 +1,4 @@
 local function modified()
-    local symbols = {}
     if vim.bo.modifiable == false or vim.bo.readonly == true then
         return '[-]'
     end
