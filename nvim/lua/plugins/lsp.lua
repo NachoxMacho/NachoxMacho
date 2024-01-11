@@ -18,7 +18,32 @@ return {
             dependencies = {
                 "ray-x/guihua.lua",
             }
-        }
+        }, {
+        'lvimuser/lsp-inlayhints.nvim',
+        ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+        config = function(_, options)
+            vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = "LspAttach_inlayhints",
+                callback = function(args)
+                    if not (args.data and args.data.client_id) then
+                        return
+                    end
+
+                    local bufnr = args.buf
+                    local client = vim.lsp.get_client_by_id(args.data.client_id)
+                    require("lsp-inlayhints").on_attach(client, bufnr)
+                end,
+            })
+            require("lsp-inlayhints").setup(options)
+            vim.api.nvim_set_keymap(
+                "n",
+                "<leader>uI",
+                "<cmd>lua require('lsp-inlayhints').toggle()<CR>",
+                { noremap = true, silent = true }
+            )
+        end,
+    }
     },
     config = function()
         local on_attach = function(_, bufnr)
@@ -36,26 +61,28 @@ return {
             --     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
             -- end
 
-            vim.keymap.set("n", "<leader>nd", function() vim.lsp.buf.definition() end,
+            vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,
                 { remap = false, buffer = bufnr, desc = 'Go to Definition' })
-            vim.keymap.set("n", "<leader>nh", function() vim.lsp.buf.hover() end,
+            vim.keymap.set("n", "gh", function() vim.lsp.buf.hover() end,
                 { remap = false, buffer = bufnr, desc = 'Open Hover' })
-            vim.keymap.set("n", "<leader>ns", function() vim.lsp.buf.workspace_symbol() end,
+            vim.keymap.set("n", "gs", function() vim.lsp.buf.workspace_symbol() end,
                 { remap = false, buffer = bufnr, desc = 'Workspace Symbol' })
             -- vim.keymap.set("n", "<leader>nn", function() vim.lsp.buf.goto_next() end,
             --     { remap = false, buffer = bufnr, desc = 'Go to Next' })
             -- vim.keymap.set("n", "<leader>np", function() vim.lsp.buf.goto_prev() end,
             --     { remap = false, buffer = bufnr, desc = 'Go to Previous' })
-            vim.keymap.set('n', '<leader>ni', function() vim.lsp.buf.implementation() end,
+            vim.keymap.set('n', 'mi', function() vim.lsp.buf.implementation() end,
                 { remap = false, buffer = bufnr, desc = 'Implementations' })
-            vim.keymap.set('n', '<leader>nf', function() vim.lsp.buf.references() end,
+            vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end,
                 { remap = false, buffer = bufnr, desc = 'References' })
-            vim.keymap.set("n", "<leader>nr", function() vim.lsp.buf.rename() end,
+            vim.keymap.set("n", "mr", function() vim.lsp.buf.rename() end,
                 { remap = false, buffer = bufnr, desc = 'Rename' })
-            vim.keymap.set('n', '<leader>nt', function() vim.lsp.buf.format({ async = false, timeout_ms = 10000 }) end,
+            vim.keymap.set('n', 'ff', function() vim.lsp.buf.format({ async = false, timeout_ms = 10000 }) end,
                 { remap = false, buffer = bufnr, desc = 'Format' })
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end,
                 { remap = false, buffer = bufnr, desc = 'Signature Help' })
+            vim.keymap.set('n', 'ma', vim.lsp.buf.code_action,
+                { remap = false, buffer = bufnr, desc = 'Code Action' })
             -- vim.keymap.set('n', '<leader>nj', '<cmd>e %:h/../../package.json<cr>', { desc = 'Open package file' })
 
             -- nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -90,7 +117,7 @@ return {
         vim.api.nvim_create_autocmd(
             "BufWritePre",
             {
-                pattern = {'*.tsx', '*.go'},
+                pattern = { '*.tsx', '*.go' },
                 group = 'AutoFormat',
                 callback = function()
                     vim.cmd('Format')
@@ -160,6 +187,20 @@ return {
                         includeInlayEnumMemberValueHints = true,
                     }
                 },
+                javascript = {
+                    includeInlayParameterNameHints = "all",
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                    includeInlayVariableTypeHints = true,
+
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
+                },
+                inlay_hints = {
+                    enabled = true,
+                },
             },
             yamlls = {}
         }
@@ -178,7 +219,7 @@ return {
 
         require('go').setup({
             lsp_cfg = true,
-            lsp_keymaps = function (bufnr) on_attach({}, bufnr) end,
+            lsp_keymaps = function(bufnr) on_attach({}, bufnr) end,
             trouble = true,
             luasnip = true,
         })
