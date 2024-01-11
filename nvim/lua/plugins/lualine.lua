@@ -1,3 +1,13 @@
+local function modified()
+    if vim.bo.modifiable == false or vim.bo.readonly == true then
+        return '[-]'
+    end
+    if vim.bo.modified then
+        return '[+]'
+    end
+    return '   '
+end
+
 return {
     'nvim-lualine/lualine.nvim',
     opts = {
@@ -9,14 +19,13 @@ return {
         sections = {
             lualine_a = {
                 {
-                    'filename',
-                    path = 1,
-                    file_status = true,
+                    modified
                 }
             },
             lualine_c = {
                 'mode'
-            }
+            },
+            lualine_y = {}
         }
     }
 }
