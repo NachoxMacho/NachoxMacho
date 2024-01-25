@@ -118,7 +118,12 @@ return {
             docker_compose_language_service = {},
             eslint = {},
             helm_ls = { filetypes = { 'helm' } },
-            html = { filetypes = { 'html' } },
+            html = {
+                filetypes = { 'html' },
+                html = {
+                },
+            },
+            htmx = {},
             gopls = {},
             jsonls = {},
             lua_ls = {
