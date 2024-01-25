@@ -1,6 +1,7 @@
 return {
     'hrsh7th/nvim-pasta',
     event = 'VeryLazy',
+    commit = 'cccfcdee507eed014557577380fc95cb32abe88a',
     config = function ()
         require('pasta').setup({
         })
