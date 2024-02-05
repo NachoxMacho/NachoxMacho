@@ -19,8 +19,8 @@ vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', { desc = 'Quit File (No Save)' } 
 -- vim.keymap.set('i', '<A-S-down>', '<Esc><cmd>t.<cr>a', { desc = 'Copy line down'})
 -- vim.keymap.set({'n', 'v'}, '<A-S-down>', ':t.<cr>', { desc = 'Copy line down'})
 
-vim.keymap.set('n', '<C-S-left>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
-vim.keymap.set('n', '<C-S-right>', '<cmd>bprevious<cr>', { desc = 'Prev buffer'})
+-- vim.keymap.set('n', '<C-S-left>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
+-- vim.keymap.set('n', '<C-S-right>', '<cmd>bprevious<cr>', { desc = 'Prev buffer'})
 vim.keymap.set('n', '<C-x>', '<cmd>bd<cr>', { desc = 'Close buffer' })
 vim.keymap.set('n', '<C-S-x>', '<C-w>o', { desc = 'Close Other windows'})
 
@@ -29,8 +29,8 @@ vim.keymap.set({'n', 'i' }, '<C-right>', '<Esc><C-w><right>', { desc = 'Window F
 vim.keymap.set({'n', 'i' }, '<C-up>', '<Esc><C-w><up>', { desc = 'Window Focus Up' })
 vim.keymap.set({'n', 'i' }, '<C-down>', '<Esc><C-w><down>', { desc = 'Window Focus Down' })
 
-vim.keymap.set('i', '<C-S-left>', '<Esc><cmd>bnext<cr>', { desc = 'Next buffer' })
-vim.keymap.set('i', '<C-S-right>', '<Esc><cmd>bnext<cr>', { desc = 'Previous buffer' })
+-- vim.keymap.set('i', '<C-S-left>', '<Esc><cmd>bnext<cr>', { desc = 'Next buffer' })
+-- vim.keymap.set('i', '<C-S-right>', '<Esc><cmd>bnext<cr>', { desc = 'Previous buffer' })
 
 -- vim.keymap.set({'n', 'i', 'v'}, '<C-S-up>', '<C-u>zz', { desc = 'Page Up' })
 -- vim.keymap.set({'n', 'i', 'v'}, '<C-S-down>', '<C-d>zz', { desc = 'Page Down' })
