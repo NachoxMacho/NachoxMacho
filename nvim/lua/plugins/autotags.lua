@@ -4,7 +4,8 @@ return {
         "javascript",
         "javascriptreact",
         "typescript",
-        "typescriptreact"
+        "typescriptreact",
+        "html",
     },
     config = function ()
         require("nvim-ts-autotag").setup()
