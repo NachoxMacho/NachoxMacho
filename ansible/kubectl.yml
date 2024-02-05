@@ -1,0 +1,45 @@
+- name: Install dependencies
+  apt:
+    name: [ "ca-certificates", "curl" ]
+  tags:
+    - kubernetes
+    - install
+
+- name: make keyring folder
+  shell: mkdir -p /etc/apt/keyrings
+
+- name: Download keyring
+  shell: curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+  tags:
+    - kubernetes
+    - install
+
+- name: Add repo
+  shell: echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
+  tags:
+    - kubernetes
+    - install
+
+- name: Update Apt
+  become: true
+  apt:
+    force_apt_get: true
+    update_cache: true
+    state: present
+  tags:
+    - install
+    - kubernetes
+    - core
+
+- name: Install kubectl
+  apt:
+    name: kubectl
+  tags:
+    - kubernetes
+    - install
+
+- name: Install helm
+  shell: curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+  tags:
+    - helm
+    - install

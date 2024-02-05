@@ -1,0 +1,19 @@
+- name: install ranger
+  apt:
+    name: ranger
+- name: clone ranger devicons
+  shell: git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+- name: link ranger conf
+  shell: ln -s "$(pwd)/ranger/rc.conf" "${HOME}/.config/ranger/rc.conf"
+
+- name: install bat
+  apt:
+    name: "bat"
+- name: link bat executable (ubuntu only)
+  shell: mkdir -p "${HOME}/.local/bin" && ln -s /usr/bin/batcat "${HOME}/.local/bin/bat"
+- name: link bat configs
+  shell: mkdir "${HOME}/.config/bat" && ln -s "$(pwd)/bat/config" "${HOME}/.config/bat/config" && ln -s "$(pwd)/bat/themes" "${HOME}/.config/bat/themes"
+
+- name: install jq
+  apt:
+    name: jq

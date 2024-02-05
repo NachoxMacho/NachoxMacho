@@ -77,17 +77,20 @@ source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # User configuration
 
+# Disable folder cd on name
+unsetopt autocd
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -100,3 +103,40 @@ source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+if [ -d ~/.cargo/bin ]; then
+    export PATH=$PATH:$HOME/.cargo/bin
+fi
+
+# NVM
+if [ -d ~/.nvm ]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+# add Pulumi to the PATH
+if [ -d ~/.pulumi/bin ]; then
+    export PATH=$PATH:$HOME/.pulumi/bin
+fi
+
+if [ -f /usr/bin/zoxide ]; then
+    eval "$(zoxide init zsh)"
+fi
+
+# pnpm
+export PNPM_HOME="/home/e072502/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# go
+if [ -f /usr/local/go/bin/go ]; then
+    export PATH=$PATH:/usr/local/go/bin
+fi
+
+# rust
+if [ -f ~/.cargo/env ]; then
+    . "$HOME/.cargo/env"
+fi

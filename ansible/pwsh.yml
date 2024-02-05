@@ -1,0 +1,17 @@
+- name: download keyring
+  shell: curl https://packages.microsoft.com/keys/microsoft.asc | gpg --yes --dearmor --output /usr/share/keyrings/microsoft.gpg
+- name: Register feed
+  shell: echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye main" > /etc/apt/sources.list.d/microsoft.list
+
+- name: Update Apt
+  become: true
+  apt:
+    force_apt_get: true
+    update_cache: true
+    state: present
+  tags:
+    - install
+    - core
+- name: Install pwsh
+  apt:
+    name: powershell
