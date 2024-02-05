@@ -3,6 +3,6 @@ return {
     config = true,
     event = 'VeryLazy',
     opts = {
-        ignoreUnloadedBufs = true,
+        ignoreUnloadedBufs = false,
     }
 }
