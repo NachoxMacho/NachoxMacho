@@ -23,5 +23,10 @@
     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
   tags: *tags_for_zsh_tasks
 
-- name: Link .zsh files
-  shell: rm "${HOME}/.zshrc" && ln -s "$(pwd)/zsh/.zshrc" "${HOME}/.zshrc"
+- name: Remove .zsh files
+  shell: rm "${HOME}/.zshrc"
+  tags: *tags_for_zsh_tasks
+
+- name: link dotfiles
+  shell: ln -s "$(pwd)/zsh/.zshrc" "${HOME}/.zshrc"
+  tags: *tags_for_zsh_tasks
