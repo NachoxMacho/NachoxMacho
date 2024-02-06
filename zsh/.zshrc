@@ -143,3 +143,7 @@ if [ -f ~/.cargo/env ]; then
 fi
 
 [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
+
+export PATH="$PATH:$HOME/.local/bin/"
+
+bindkey -s ^f "tmux-sessionizer\n"
