@@ -141,3 +141,5 @@ fi
 if [ -f ~/.cargo/env ]; then
     . "$HOME/.cargo/env"
 fi
+
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
