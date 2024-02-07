@@ -15,7 +15,8 @@
     - nvim
     - install
 - name: download neovim
-  shell: curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  shell: curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+  # shell: curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 - name: make neovim executable
   shell: chmod u+x nvim.appimage
 - name: add to path
