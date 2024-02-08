@@ -1,0 +1,11 @@
+[pull]
+	rebase = true
+[core]
+	excludesFiles = ~/.git/info/exclude
+	autocrlf = input
+
+[includeIf "gitdir:~/personal/"]
+path = .gitconfig-personal.inc
+
+[includeIf "gitdir:~/work/"]
+path = .gitconfig-work.inc

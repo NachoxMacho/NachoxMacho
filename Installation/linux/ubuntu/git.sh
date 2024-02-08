@@ -14,5 +14,6 @@ git config --global user.name 'Rob Owens'
 git config --global user.email 'rtowens17@gmail.com'
 
 # Git global ignore for vim tags
-mkdir "${HOME}/.config/git"
-ln -s "$(pwd)/git/ignore" "${HOME}/.config/git/ignore"
+mkdir -p "${HOME}/.config"
+ln -s "$(pwd)/git" "${HOME}/.config/git"
+ln -s "$(pwd)/ssh/config" "${HOME}/.ssh/config"
