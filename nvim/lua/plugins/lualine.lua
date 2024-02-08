@@ -25,7 +25,9 @@ return {
             lualine_c = {
                 'mode'
             },
-            lualine_y = {}
+            lualine_x = { 'filetype' },
+            lualine_y = {},
+            lualine_z = { 'location' },
         }
     }
 }
