@@ -1,3 +1,6 @@
 Host github.com
     AddKeysToAgent yes
     IdentitiesOnly yes
+Host ssh.dev.azure.com
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_rsa
