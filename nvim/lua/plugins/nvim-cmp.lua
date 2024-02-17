@@ -30,6 +30,11 @@ return {
                 luasnip.text_node({ "", "}" })
             })
         })
+        luasnip.add_snippets("go", {
+            luasnip.snippet("en", {
+                luasnip.text_node({"if err != nil {", "\treturn err", "}"}),
+            })
+        })
 
         local lspMapping = {
             ['<down>'] = cmp.mapping.select_next_item(),
@@ -126,17 +131,9 @@ return {
                         Operator = "󰆕",
                         TypeParameter = "󰅲",
                     }
-                    local lspkind_ok, lspkind = pcall(require, "lspkind")
-                    if not lspkind_ok then
-                        -- From kind_icons array
-                        -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-                        vim_item.kind = kind_icons[vim_item.kind]
-                        -- Source
-                        return vim_item
-                    else
-                        -- From lspkind
-                        return lspkind.cmp_format()
-                    end
+                    vim_item.kind = kind_icons[vim_item.kind]
+                    -- Source
+                    return vim_item
                 end
             },
             sources = {
@@ -157,6 +154,10 @@ return {
             }
         })
         cmp.setup.cmdline(':', {
+            window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered()
+            },
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
                 { name = 'path' }
