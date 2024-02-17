@@ -7,6 +7,7 @@ return {
     },
     keys = {
         { '<leader>fm', ':Move<cr>', desc = 'Move File' },
+        { '<leader>fq', ':Rename<cr>', desc = 'Rename File' },
         { '<leader>fd', ':Duplicate<cr>', desc = 'Duplicate File' },
         { '<leader>fx', ':Chmodx<cr>', desc = 'Chmod x File' },
         { '<leader>fr', ':Trash<cr>', desc = 'Delete File' },
