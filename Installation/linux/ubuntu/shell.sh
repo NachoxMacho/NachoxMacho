@@ -13,4 +13,4 @@ rm "${HOME}/.zshrc"
 mkdir ~/.zsh
 ln -s "$(pwd)/zsh/.zshrc" "${HOME}/.zshrc"
 ln -s "$(pwd)/zsh/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" "${HOME}/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh"
-ln -s "$(pwd)/bin/.local/tmux-sessionizer" "${HOME}/.local/bin/tmux-sessionizer"
+ln -s "$(pwd)/bin/.local/scripts/tmux-sessionizer" "${HOME}/.local/bin/tmux-sessionizer"
