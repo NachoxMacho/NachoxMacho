@@ -11,6 +11,9 @@ vim.opt.expandtab = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+-- Disable showing mode in command line
+vim.opt.showmode = false
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
