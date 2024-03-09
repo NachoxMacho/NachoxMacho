@@ -15,6 +15,9 @@ vim.opt.splitbelow = true
 -- Disable showing mode in command line
 vim.opt.showmode = false
 
+-- Show which line your cursor is on
+vim.opt.cursorline = true
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
