@@ -1,4 +1,4 @@
-vim.opt.nu = true
+vim.opt.number = true
 vim.opt.relativenumber = false
 
 vim.g.loaded_netrw = 1
