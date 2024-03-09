@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 
 vim.keymap.set("n", "<leader>s", "<cmd>update<cr>", { desc = 'Save File' } )
-vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', { desc = 'Quit File (No Save)' } )
+-- vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', { desc = 'Quit File (No Save)' } )
 -- vim.keymap.set('n', '<leader>w', '<c-w>', { desc = 'Window Mode' } )
 
 -- vim.keymap.set("n", "<A-up>", "<cmd>m -2<CR>", { desc = 'Move selection up' })
@@ -60,6 +60,8 @@ vim.keymap.set('n', '<leader>mc', ':s//g<left><left>', { desc = 'Replace in curr
 
 vim.keymap.set('n', '<leader>fc', ':e %:h/',{  desc = 'Create File' })
 vim.keymap.set('n', '<leader>fn', ':e ', { desc = 'Create File' })
+vim.keymap.set('n', '<leader>np', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
+vim.keymap.set('n', '<leader>nn', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
 
 local diagnostics_active = true
 vim.keymap.set('n', '<leader>d', function()
