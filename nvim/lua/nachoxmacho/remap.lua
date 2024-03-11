@@ -22,7 +22,7 @@ vim.keymap.set("n", "<leader>s", "<cmd>update<cr>", { desc = 'Save File' } )
 -- vim.keymap.set('n', '<C-S-left>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
 -- vim.keymap.set('n', '<C-S-right>', '<cmd>bprevious<cr>', { desc = 'Prev buffer'})
 vim.keymap.set('n', '<C-x>', '<cmd>bd<cr>', { desc = 'Close buffer' })
-vim.keymap.set('n', '<C-S-x>', '<C-w>o', { desc = 'Close Other windows'})
+vim.keymap.set('n', '<C-S-x>', '<cmd>bd!<cr>', { desc = 'Close buffer!'})
 
 vim.keymap.set({'n', 'i' }, '<C-left>', '<Esc><C-w><left>', { desc = 'Window Focus Left' })
 vim.keymap.set({'n', 'i' }, '<C-right>', '<Esc><C-w><right>', { desc = 'Window Focus Right' })
