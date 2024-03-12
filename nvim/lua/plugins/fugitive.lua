@@ -76,9 +76,7 @@ end
 
 local function gitCommitCurrentFile()
     gitAddCurrentFile()
-    if gitCommit() then
-        gitPush()
-    end
+    gitCommit()
 end
 
 return {
