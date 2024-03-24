@@ -35,6 +35,15 @@ return {
                 luasnip.text_node({"if err != nil {", "\treturn err", "}"}),
             })
         })
+        -- luasnip.add_snippets("go", {
+        --     luasnip.snippet("jfield", {
+        --         luasnip.insert_node(1),
+        --         luasnip.text_node(" "),
+        --         luasnip.insert_node(2),
+        --         luasnip.text_node(" `json:\""),
+        --         luasnip.insert_node(1),
+        --     })
+        -- })
 
         local lspMapping = {
             ['<down>'] = cmp.mapping.select_next_item(),
