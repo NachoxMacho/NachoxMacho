@@ -7,6 +7,8 @@ Primary Projects:
 - [OpnLab](https://github.com/NachoxMacho/opnlab): New experimental project
 - [School Projects](https://github.com/NachoxMacho/Projects): Older college projects
 
+Fun fact: I run my own kubernetes cluster for funsies at home
+
 <!--
 **NachoxMacho/NachoxMacho** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
