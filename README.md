@@ -1,7 +1,11 @@
 ### Hi there 👋
 
-- 🔭 I’m currently working on developing PowerShell, and improving workflows
-- 🌱 I’m currently learning PowerShell, Python, and C#
+I'm a PowerShell developer with an emphasis on developer tooling.
+I'm working on learning Go + HTMX and I use neovim btw, with some occasional Arch.
+
+Primary Projects:
+- [OpnLab](https://github.com/NachoxMacho/opnlab): New experimental project
+- [School Projects](https://github.com/NachoxMacho/Projects): Older college projects
 
 <!--
 **NachoxMacho/NachoxMacho** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
