@@ -75,8 +75,12 @@ local function gitAddCurrentFile()
 end
 
 local function gitCommitCurrentFile()
+    local previousGit = findGitWindow()
     gitAddCurrentFile()
     gitCommit()
+    if previousGit then
+        openGit()
+    end
 end
 
 return {
