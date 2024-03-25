@@ -70,7 +70,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker cp)
+plugins=(git docker cp asdf)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
@@ -144,6 +144,10 @@ if [ -f ~/.cargo/env ]; then
 fi
 
 [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
+
+if [ -f ~/.asdf ]; then
+    . "$HOME/.asdf/asdf.sh"
+fi
 
 export PATH="$PATH:$HOME/.local/bin/"
 
