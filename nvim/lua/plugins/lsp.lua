@@ -117,7 +117,12 @@ return {
             dockerls = {},
             docker_compose_language_service = {},
             eslint = {},
-            helm_ls = { filetypes = { 'helm' } },
+            helm_ls = {
+                filetypes = { 'helm' },
+                yamlls= {
+                    path = "yaml-language-server",
+                }
+            },
             html = {
                 filetypes = { 'html' },
                 html = {
