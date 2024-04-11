@@ -145,6 +145,11 @@ fi
 
 [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
 
+if [ -d /usr/share/doc/fzf ]; then
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+    source /usr/share/doc/fzf/examples/completion.zsh
+fi
+
 if [ -f ~/.asdf ]; then
     . "$HOME/.asdf/asdf.sh"
 fi
