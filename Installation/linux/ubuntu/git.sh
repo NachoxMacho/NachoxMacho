@@ -4,11 +4,7 @@ sudo apt install gpg
 sudo apt install pass
 
 # Git Setup
-gpg --full-generate-key
-gpg --list-secret-keys --keyid-format=long
-pass init "<key-id>"
-git config --global credential.credentialStore gpg
-gpg --armor --export "<key-id>"
+ssh-keygen -t ed25519 -C "rtowens17@gmail.com"
 
 git config --global user.name 'Rob Owens'
 git config --global user.email 'rtowens17@gmail.com'
