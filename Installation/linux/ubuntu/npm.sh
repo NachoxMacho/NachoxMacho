@@ -6,3 +6,6 @@ NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s
 
 nvm install --lts
 nvm use --lts
+
+# PNPM install if needed
+curl -fsSL https://get.pnpm.io/install.sh | sh -
