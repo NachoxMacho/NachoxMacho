@@ -211,6 +211,33 @@ return {
         mason_lspconfig.setup_handlers({
             function(server_name)
                 if server_name == 'gopls' then return end
+                if server_name == 'powershell_es' then
+                    local installPath = require('mason-registry').get_package('powershell-editor-services'):get_install_path()
+                    require('lspconfig')['powershell_es'].setup({
+                        bundle_path = installPath,
+                        cmd = { 'pwsh', '-NoLogo', '-NoProfile',
+                            '-Command', installPath .. '/PowerShellEditorServices/Start-EditorServices.ps1',
+                            '-BundledModulesPath ' .. installPath,
+                            '-LogPath ' .. vim.fn.stdpath('cache') .. '/powershell_es.log',
+                            '-SessionDetailsPath ' .. vim.fn.stdpath('cache') .. '/powershell_es.session.json',
+                            '-FeatureFlags @()',
+                            '-AdditionalModules @()',
+                            '-HostName nvim',
+                            '-HostProfileId 0',
+                            '-HostVersion 1.0.0',
+                            '-Stdio',
+                            '-LogLevel Normal',
+                        },
+                        capabilities = capabilities,
+                        on_attach = on_attach,
+                        settings = servers[server_name],
+                        filetypes = (servers[server_name] or {}).filetypes,
+                        init_options = {
+                            enableProfileLoading = false,
+                        }
+                    })
+                    return
+                end
                 require('lspconfig')[server_name].setup({
                     capabilities = capabilities,
                     on_attach = on_attach,
