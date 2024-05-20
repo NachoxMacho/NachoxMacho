@@ -207,7 +207,7 @@ return {
             lsp_cfg = true,
             lsp_keymaps = function(bufnr) on_attach({}, bufnr) end,
             lsp_inlay_hints = {
-                enabled = true,
+                enabled = false,
                 style = 'eol',
             },
             trouble = false,
