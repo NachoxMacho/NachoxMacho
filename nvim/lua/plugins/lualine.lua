@@ -15,6 +15,7 @@ return {
             icons_enabled = true,
             theme = 'catppuccin',
             globalstatus = true,
+            always_divide_middle = false,
         },
         sections = {
             lualine_a = {
@@ -23,7 +24,14 @@ return {
                 }
             },
             lualine_c = {
-                'mode'
+                {
+
+                    'filename',
+                    file_status = false,   -- Displays file status (readonly status, modified status)
+                    newfile_status = false, -- Display new file status (new file means no write after created)
+                    path = 1,
+                    shorting_target = 20, -- Shortens path to leave spaces in the window
+                }
             },
             lualine_x = { 'filetype' },
             lualine_y = {},
