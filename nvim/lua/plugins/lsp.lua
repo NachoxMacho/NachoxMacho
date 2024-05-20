@@ -86,6 +86,7 @@ return {
             vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
                 vim.lsp.buf.format()
             end, { desc = 'Format current buffer with LSP' })
+
         end
 
         vim.api.nvim_create_augroup('AutoFormat', {})
@@ -205,7 +206,11 @@ return {
         require('go').setup({
             lsp_cfg = true,
             lsp_keymaps = function(bufnr) on_attach({}, bufnr) end,
-            trouble = true,
+            lsp_inlay_hints = {
+                enabled = true,
+                style = 'eol',
+            },
+            trouble = false,
             luasnip = true,
         })
         mason_lspconfig.setup_handlers({
