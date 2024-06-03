@@ -62,6 +62,7 @@ vim.keymap.set('n', '<leader>fc', ':e %:h/',{  desc = 'Create File' })
 vim.keymap.set('n', '<leader>fn', ':e ', { desc = 'Create File' })
 vim.keymap.set('n', '<leader>np', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
 vim.keymap.set('n', '<leader>nn', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+vim.keymap.set('n', '<leader>fv', '<cmd>Explore<cr>', { desc = 'File Explorer' })
 
 local diagnostics_active = true
 vim.keymap.set('n', '<leader>d', function()
