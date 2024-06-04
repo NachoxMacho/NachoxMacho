@@ -86,7 +86,6 @@ return {
             vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
                 vim.lsp.buf.format()
             end, { desc = 'Format current buffer with LSP' })
-
         end
 
         vim.api.nvim_create_augroup('AutoFormat', {})
@@ -100,6 +99,14 @@ return {
                 end
             }
         )
+        -- Temporary workaround to get inlay hints working consistently
+        vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'FocusGained', 'CursorHold' }, {
+            group = 'AutoFormat',
+            pattern = { '*.go', '*.mod' },
+            callback = function()
+                require('go.inlay').set_inlay_hints()
+            end,
+        })
 
         local servers = {
             azure_pipelines_ls = {
@@ -120,7 +127,7 @@ return {
             eslint = {},
             helm_ls = {
                 filetypes = { 'helm' },
-                yamlls= {
+                yamlls = {
                     path = "yaml-language-server",
                 }
             },
@@ -217,7 +224,8 @@ return {
             function(server_name)
                 if server_name == 'gopls' then return end
                 if server_name == 'powershell_es' then
-                    local installPath = require('mason-registry').get_package('powershell-editor-services'):get_install_path()
+                    local installPath = require('mason-registry').get_package('powershell-editor-services')
+                    :get_install_path()
                     require('lspconfig')['powershell_es'].setup({
                         bundle_path = installPath,
                         cmd = { 'pwsh', '-NoLogo', '-NoProfile',
