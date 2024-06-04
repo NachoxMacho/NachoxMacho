@@ -4,7 +4,10 @@ vim.opt.relativenumber = false
 -- NetRW settings
 vim.g.netrw_keepdir = 1
 vim.g.netrw_localcopydircommand = 'cp -r'
+vim.g.netrw_localmkdir = "mkdir -p"
+vim.g.netrw_localrmdir = "rm -r"
 vim.g.netrw_liststyle = 3
+vim.g.netrw_sizestyle = 'H'
 
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
@@ -35,19 +38,20 @@ vim.opt.backup = false
 if vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 or vim.fn.has('win16') == 1 then
     -- vim.opt.undodir = os.getenv('LocalAppData') .. '/nvim-data/undodir'
     local powershell_options = {
-      shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
-      shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-      shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-      shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-      shellquote = "",
-      shellxquote = "",
+        shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
+        shellcmdflag =
+        "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+        shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+        shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+        shellquote = "",
+        shellxquote = "",
     }
 
     for option, value in pairs(powershell_options) do
         vim.opt[option] = value
     end
--- else
---     vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+    -- else
+    --     vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 end
 vim.opt.undofile = true
 
@@ -82,9 +86,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+    desc = 'Highlight when yanking (copying) text',
+    group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })
