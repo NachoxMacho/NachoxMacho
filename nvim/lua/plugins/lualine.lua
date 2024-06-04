@@ -29,7 +29,7 @@ return {
                     'filename',
                     file_status = false,   -- Displays file status (readonly status, modified status)
                     newfile_status = false, -- Display new file status (new file means no write after created)
-                    path = 1,
+                    path = 3,
                     shorting_target = 20, -- Shortens path to leave spaces in the window
                 }
             },
