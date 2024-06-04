@@ -14,7 +14,7 @@ return {
         })
     end,
     keys = {
-        { '<leader>ff', ':Telescope find_files<cr>',                                                              desc = 'Files' },
+        { '<leader>ff', ':Telescope find_files hidden=true<cr>',                                                  desc = 'Files' },
         { '<leader>fa', '<cmd> Telescope find_files no_ignore=true hidden=true<cr>',                              desc = 'All Files' },
         { '<leader>fg', ':Telescope git_files<cr>',                                                               desc = 'Git Files' },
         { '<leader>fs', ':Telescope live_grep<cr>',                                                               desc = 'Search' },
