@@ -99,14 +99,6 @@ return {
                 end
             }
         )
-        -- Temporary workaround to get inlay hints working consistently
-        vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'FocusGained', 'CursorHold' }, {
-            group = 'AutoFormat',
-            pattern = { '*.go', '*.mod' },
-            callback = function()
-                require('go.inlay').set_inlay_hints()
-            end,
-        })
 
         local servers = {
             azure_pipelines_ls = {
