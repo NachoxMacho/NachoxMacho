@@ -38,8 +38,8 @@ vim.keymap.set({'n', 'i' }, '<C-down>', '<Esc><C-w><down>', { desc = 'Window Foc
 vim.keymap.set('n', '<PageUp>', 'Hzz')
 vim.keymap.set('n', '<PageDown>', 'Lzz')
 
-vim.keymap.set('n', '<Home>', '^')
-vim.keymap.set('n', '<End>', '$')
+-- vim.keymap.set('n', '<Home>', '^')
+-- vim.keymap.set('n', '<End>', '$')
 vim.keymap.set('i', '<Home>', '<C-o>^')
 vim.keymap.set('i', '<End>', '<C-o>$')
 
