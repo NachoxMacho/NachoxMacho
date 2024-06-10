@@ -88,17 +88,17 @@ return {
             end, { desc = 'Format current buffer with LSP' })
         end
 
-        vim.api.nvim_create_augroup('AutoFormat', {})
-        vim.api.nvim_create_autocmd(
-            "BufWritePre",
-            {
-                pattern = { '*.tsx', '*.go' },
-                group = 'AutoFormat',
-                callback = function()
-                    vim.cmd('Format')
-                end
-            }
-        )
+        -- vim.api.nvim_create_augroup('AutoFormat', {})
+        -- vim.api.nvim_create_autocmd(
+        --     "BufWritePre",
+        --     {
+        --         pattern = { '*.tsx', '*.go' },
+        --         group = 'AutoFormat',
+        --         callback = function()
+        --             vim.cmd('Format')
+        --         end
+        --     }
+        -- )
 
         local servers = {
             azure_pipelines_ls = {
@@ -158,7 +158,8 @@ return {
                     }
                 }
             },
-            tailwindcss = {},
+            -- tailwindcss = {},
+            templ = {},
             tsserver = {
                 typescript = {
                     inlayHints = {
