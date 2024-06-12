@@ -6,7 +6,6 @@ vim.g.netrw_keepdir = 1
 vim.g.netrw_localcopydircommand = 'cp -r'
 vim.g.netrw_localmkdir = "mkdir -p"
 vim.g.netrw_localrmdir = "rm -r"
-vim.g.netrw_liststyle = 3
 vim.g.netrw_sizestyle = 'H'
 
 -- vim.g.loaded_netrw = 1
