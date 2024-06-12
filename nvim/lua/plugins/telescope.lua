@@ -10,6 +10,9 @@ return {
                         ["<C-Left>"] = require('telescope.actions').cycle_previewers_prev,
                     }
                 }
+            },
+            pickers = {
+                find_files = { find_command = { "rg", "--files", "--color", "never", "--hidden", "--glob", "!.git" } },
             }
         })
     end,
