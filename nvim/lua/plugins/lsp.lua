@@ -217,8 +217,7 @@ return {
             function(server_name)
                 if server_name == 'gopls' then return end
                 if server_name == 'powershell_es' then
-                    local installPath = require('mason-registry').get_package('powershell-editor-services')
-                    :get_install_path()
+                    local installPath = require('mason-registry').get_package('powershell-editor-services'):get_install_path()
                     require('lspconfig')['powershell_es'].setup({
                         bundle_path = installPath,
                         cmd = { 'pwsh', '-NoLogo', '-NoProfile',
