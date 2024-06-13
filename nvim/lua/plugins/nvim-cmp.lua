@@ -32,14 +32,23 @@ return {
         })
         luasnip.add_snippets("go", {
             luasnip.snippet("en", {
-                luasnip.text_node({ "if err != nil {", "\treturn err", "}" }),
+                luasnip.text_node({"if err != nil {", "\treturn err", "}"}),
             })
         })
+        -- luasnip.add_snippets("go", {
+        --     luasnip.snippet("jfield", {
+        --         luasnip.insert_node(1),
+        --         luasnip.text_node(" "),
+        --         luasnip.insert_node(2),
+        --         luasnip.text_node(" `json:\""),
+        --         luasnip.insert_node(1),
+        --     })
+        -- })
 
         local lspMapping = {
-            ['<C-n>'] = cmp.mapping.select_next_item(),
-            ['<C-p>'] = cmp.mapping.select_prev_item(),
-            ['<enter>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true}),
+            ['<down>'] = cmp.mapping.select_next_item(),
+            ['<up>'] = cmp.mapping.select_prev_item(),
+            ['<enter>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
             ['<C-k>'] = cmp.mapping({
                 i = function(_)
                     if cmp.visible() then
@@ -50,11 +59,47 @@ return {
                 end
             }),
             ['<C-f>'] = cmp.mapping.close(),
+            ['<Tab>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                elseif luasnip.expand_or_locally_jumpable() then
+                    luasnip.expand_or_jump()
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
+            ['<S-Tab>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                elseif luasnip.locally_jumpable(-1) then
+                    luasnip.jump(-1)
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
         }
 
         local cmdMapping = {
             ['<C-n>'] = cmp.mapping.select_next_item(),
-            ['<C-p>'] = cmp.mapping.select_prev_item(),
+            ['<C-h>'] = cmp.mapping.select_prev_item(),
+            ['<Tab>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                elseif luasnip.expand_or_locally_jumpable() then
+                    luasnip.expand_or_jump()
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
+            ['<S-Tab>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                elseif luasnip.locally_jumpable(-1) then
+                    luasnip.jump(-1)
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
         }
         cmp.setup({
             snippet = {
@@ -62,17 +107,6 @@ return {
                     luasnip.lsp_expand(args.body)
                 end
             },
-            enabled = function()
-                local context = require('cmp.config.context')
-
-                -- Disabled auto complete in comment
-                if vim.api.nvim_get_mode().mode == 'c' then
-                    return true
-                else
-                    return not context.in_treesitter_capture("comment")
-                        and not context.in_syntax_group("Comment")
-                end
-            end,
             window = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered()
