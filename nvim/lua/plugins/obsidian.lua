@@ -1,7 +1,6 @@
 return {
-    "NachoxMacho/obsidian.nvim",
-    branch = 'feature/convert-to-logseq',
-    lazy = true,
+    "epwalsh/obsidian.nvim",
+    lazy = false,
     event = { "BufReadPre ~/Documents/docs/**.md" },
     -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
     -- event = { "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md" },
@@ -23,53 +22,60 @@ return {
         -- "junegunn/fzf.vim"
 
         -- Optional, alternative to nvim-treesitter for syntax highlighting.
-        "godlygeek/tabular",
-        "preservim/vim-markdown",
+        -- "godlygeek/tabular",
+        -- "preservim/vim-markdown",
     },
     opts = {
-        dir = "~/Documents/docs", -- no need to call 'vim.fn.expand' here
-        notes_subdir = 'pages',
+        workspaces = {
+            {
+                name = "personal",
+                path = "~/personal/notes",
+            },
+        },
         completion = {
             nvim_cmp = true,
-            new_notes_location = 'notes_subdir',
-            min_chars = 0,
-            prepend_note_id = false,
+            min_chars = 2,
         },
-        daily_notes = {
-            folder = 'journals',
-            date_format = "%Y_%m_%d",
+        ui = {
+            enable = false,
         },
-        templates = {
-            subdir = 'templates',
-            date_format = '%Y_%m_%d',
-        },
-        disable_frontmatter = true,
-        note_func_id = function(_)
-            return ''
-        end
-    },
-    config = function(_, opts)
-        require("obsidian").setup(opts)
-
-        -- Optional, override the 'gf' keymap to utilize Obsidian's search functionality.
-        -- see also: 'follow_url_func' config option below.
-        vim.keymap.set("n", "gf", function()
-            if require("obsidian").util.cursor_on_markdown_link() then
-                return "<cmd>ObsidianFollowLink<CR>"
-            else
-                return "gf"
+        note_id_func = function(title)
+            if title ~= nil then
+                return title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
             end
-        end, { noremap = false, expr = true })
-        require('nvim-treesitter.configs').setup({
-            ensure_installed = { 'markdown', 'markdown_inline' },
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = { 'markdown' }
-            }
-        })
-    end,
+            return tostring(os.time())
+        end,
+        wiki_link_func = "prepend_note_id",
+        mappings = {
+            ["gf"] = {
+                action = function()
+                    return require("obsidian").util.gf_passthrough()
+                end,
+                opts = { noremap = false, expr = true, buffer = true },
+            },
+            -- Toggle check-boxes.
+            ["<leader>ch"] = {
+                action = function()
+                    return require("obsidian").util.toggle_checkbox()
+                end,
+                opts = { buffer = true },
+            },
+            -- Smart action depending on context, either follow link or toggle checkbox.
+            ["<cr>"] = {
+                action = function()
+                    return require("obsidian").util.smart_action()
+                end,
+                opts = { buffer = true, expr = true },
+            },
+        },
+        attachments = {
+            img_folder = "assets",
+        },
+    },
     keys = {
         { '<leader>wj', '<cmd>ObsidianToday<cr>',  desc = 'Open today note' },
-        { '<leader>ws', '<cmd>ObsidianSearch<cr>', desc = 'Search notes' }
+        { '<leader>wt', '<cmd>ObsidianTags<cr>',  desc = 'Open tags' },
+        { '<leader>ws', '<cmd>ObsidianSearch<cr>', desc = 'Search notes' },
+        { '<leader>wn', '<cmd>ObsidianNew<cr>', desc = 'New Note' },
     }
 }
