@@ -18,7 +18,12 @@ return {
             dependencies = {
                 "ray-x/guihua.lua",
             }
-        }
+        },
+        {
+            "maxandron/goplements.nvim",
+            ft = "go",
+            opts = {},
+        },
     },
     config = function()
         local on_attach = function(_, bufnr)
