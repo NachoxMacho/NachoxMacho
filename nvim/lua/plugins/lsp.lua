@@ -24,6 +24,17 @@ return {
             ft = "go",
             opts = {},
         },
+        {
+            'olexsmir/gopher.nvim',
+            ft = 'go',
+            dependencies = {
+                'mfussenegger/nvim-dap',
+            },
+            build = function()
+                vim.cmd.GoInstallDeps()
+            end,
+            opts = {}
+        },
     },
     config = function()
         local on_attach = function(_, bufnr)
