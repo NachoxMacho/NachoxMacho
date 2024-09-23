@@ -75,6 +75,7 @@ vim.opt.breakindent = true
 vim.opt.completeopt = 'menuone,noselect'
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.api.nvim_create_augroup("nachoxmacho", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
