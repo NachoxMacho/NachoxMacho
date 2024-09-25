@@ -176,6 +176,8 @@ return {
             },
             -- tailwindcss = {},
             templ = {},
+            terraformls = { filetypes = { 'tf', 'tfvars', 'terraform' } },
+            tflint = { filetypes = { 'tf', 'tfvars', 'terraform' } },
             tsserver = {
                 typescript = {
                     inlayHints = {
