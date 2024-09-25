@@ -3,7 +3,7 @@ vim.opt.relativenumber = false
 
 -- NetRW settings
 vim.g.netrw_keepdir = 1
-vim.g.netrw_localcopydircommand = 'cp -r'
+-- vim.g.netrw_localcopydircommand = 'cp -r'
 vim.g.netrw_localmkdir = "mkdir -p"
 vim.g.netrw_localrmdir = "rm -r"
 vim.g.netrw_sizestyle = 'H'
