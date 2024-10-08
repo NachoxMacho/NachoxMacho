@@ -215,14 +215,16 @@ return {
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
         -- Ensure the servers above are installed
-        local mason_lspconfig = require 'mason-lspconfig'
+        local mason_lspconfig = require('mason-lspconfig')
 
         mason_lspconfig.setup({
             ensure_installed = vim.tbl_keys(servers),
         })
 
         require('go').setup({
-            lsp_cfg = true,
+            lsp_cfg = false,
+            tag_options = "",
+
             lsp_keymaps = function(bufnr) on_attach({}, bufnr) end,
             lsp_inlay_hints = {
                 enabled = false,
@@ -233,7 +235,12 @@ return {
         })
         mason_lspconfig.setup_handlers({
             function(server_name)
-                if server_name == 'gopls' then return end
+                if server_name == 'gopls' then
+                    local cfg = require'go.lsp'.config()
+                    cfg.on_attach = on_attach
+                    require('lspconfig')["gopls"].setup(cfg)
+                    return
+                end
                 if server_name == 'powershell_es' then
                     local installPath = require('mason-registry').get_package('powershell-editor-services'):get_install_path()
                     require('lspconfig')['powershell_es'].setup({
