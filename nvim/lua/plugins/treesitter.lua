@@ -1,6 +1,9 @@
 return {
     'nvim-treesitter/nvim-treesitter',
     event = { "BufReadPost", "BufNewFile" },
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter-context',
+    },
     build = ':TSUpdate',
     config = function ()
          require('nvim-treesitter.configs').setup({
@@ -18,8 +21,5 @@ return {
             require 'nvim-treesitter.install'.compilers = { 'clang' }
         end
     end
-},
-{
-    'nvim-treesitter/nvim-treesitter-context'
 }
 
