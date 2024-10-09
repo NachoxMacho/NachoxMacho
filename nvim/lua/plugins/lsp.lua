@@ -178,7 +178,7 @@ return {
             templ = {},
             terraformls = { filetypes = { 'tf', 'tfvars', 'terraform' } },
             tflint = { filetypes = { 'tf', 'tfvars', 'terraform' } },
-            tsserver = {
+            ts_ls = {
                 typescript = {
                     inlayHints = {
                         includeInlayParameterNameHints = "all",
