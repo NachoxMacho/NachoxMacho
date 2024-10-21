@@ -157,3 +157,4 @@ fi
 export PATH="$PATH:$HOME/.local/bin/"
 
 bindkey -s ^f "tmux-sessionizer\n"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
