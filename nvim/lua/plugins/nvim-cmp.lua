@@ -105,6 +105,7 @@ return {
                 { name = 'luasnip' },
                 { name = 'buffer' },
                 { name = 'path' },
+                { name = "supermaven" },
             },
             view = {
                 entries = 'custom',
