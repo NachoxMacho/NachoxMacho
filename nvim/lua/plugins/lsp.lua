@@ -35,6 +35,14 @@ return {
             end,
             opts = {}
         },
+        {
+            -- 'Dan7h3x/signup.nvim',
+            -- config = function()
+            --     require('signup').setup({
+            --         toggle_key = "<C-l>",
+            --     })
+            -- end
+        },
     },
     config = function()
         local on_attach = function(_, bufnr)
@@ -212,7 +220,8 @@ return {
         require('neodev').setup({})
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+        capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+        -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
         -- Ensure the servers above are installed
         local mason_lspconfig = require('mason-lspconfig')

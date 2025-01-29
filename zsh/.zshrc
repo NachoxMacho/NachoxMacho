@@ -70,7 +70,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker cp asdf kubectl helm tmux)
+plugins=(git docker cp asdf kubectl helm tmux kube-ps1)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
@@ -104,6 +104,8 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+RPROMPT='$(kube_ps1)'
 
 if [ -d ~/.cargo/bin ]; then
     export PATH=$PATH:$HOME/.cargo/bin
@@ -157,4 +159,8 @@ fi
 export PATH="$PATH:$HOME/.local/bin/"
 
 bindkey -s ^f "tmux-sessionizer\n"
+
+export PATH=$PATH:/home/rob/.spicetify
+[[ "$PATH" == *"$HOME/bin:"* ]] || export PATH="$HOME/bin:$PATH"
+! { which werf | grep -qsE "^/home/rob/.trdl/"; } && [[ -x "$HOME/bin/trdl" ]] && source $("$HOME/bin/trdl" use werf "2" "stable")
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

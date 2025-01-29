@@ -22,3 +22,12 @@ mkdir $HOME/.config/k9s -p
 rm $HOME/.config/k9s/config.yaml $HOME/.config/k9s/skins -rf
 ln -s "$(pwd)/k9s/skins" "${HOME}/.config/k9s/skins"
 ln -s "$(pwd)/k9s/config.yaml" "${HOME}/.config/k9s/config.yaml"
+
+
+# Trivy Setup
+sudo apt-get install wget gnupg
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb generic main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+sudo apt-get update
+sudo apt-get install trivy
+
