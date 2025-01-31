@@ -5,6 +5,7 @@
   "clever-f.vim": { "branch": "master", "commit": "6a3ac5e3688598af9411ab741737f98c47370c22" },
   "cloak.nvim": { "branch": "main", "commit": "648aca6d33ec011dc3166e7af3b38820d01a71e4" },
   "cmp-omni": { "branch": "main", "commit": "4ef610bbd85a5ee4e97e09450c0daecbdc60de86" },
+  "colorful-menu.nvim": { "branch": "master", "commit": "37771361ce3bcb99448b9e760ca6f65d5831003e" },
   "cybu.nvim": { "branch": "main", "commit": "fe07ac6825c30c5e8c4506ff27571a7f58f327ee" },
   "dressing.nvim": { "branch": "master", "commit": "3a45525bb182730fe462325c99395529308f431e" },
   "duplicate.nvim": { "branch": "main", "commit": "ab057af7872c44e6fbd48df9b03983c8e67c50a7" },
