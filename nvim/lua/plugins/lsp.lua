@@ -36,6 +36,13 @@ return {
             opts = {}
         },
         {
+            "rcarriga/nvim-dap-ui",
+            dependencies = {
+                "mfussenegger/nvim-dap",
+                "nvim-neotest/nvim-nio"
+            }
+        },
+        {
             -- 'Dan7h3x/signup.nvim',
             -- config = function()
             --     require('signup').setup({
@@ -46,25 +53,11 @@ return {
     },
     config = function()
         local on_attach = function(_, bufnr)
-            -- NOTE: Remember that lua is a real programming language, and as such it is possible
-            -- to define small helper and utility functions so you don't have to repeat yourself
-            -- many times.
-            --
-            -- In this case, we create a function that lets us more easily define mappings specific
-            -- for LSP related items. It sets the mode, buffer and description for us each time.
-            -- local nmap = function(keys, func, desc)
-            --     if desc then
-            --         desc = 'LSP: ' .. desc
-            --     end
-            --
-            --     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-            -- end
-
-            vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,
+            vim.keymap.set("n", "gd", '<cmd>Telescope lsp_definitions <cr>',
                 { remap = false, buffer = bufnr, desc = 'Go to Definition' })
             vim.keymap.set("n", "gh", function() vim.lsp.buf.hover() end,
                 { remap = false, buffer = bufnr, desc = 'Open Hover' })
-            vim.keymap.set("n", "gs", function() vim.lsp.buf.workspace_symbol() end,
+            vim.keymap.set("n", "gs", '<cmd> Telescope lsp_workspace_symbols <cr>',
                 { remap = false, buffer = bufnr, desc = 'Workspace Symbol' })
             -- vim.keymap.set("n", "<leader>nn", function() vim.lsp.buf.goto_next() end,
             --     { remap = false, buffer = bufnr, desc = 'Go to Next' })
@@ -72,7 +65,7 @@ return {
             --     { remap = false, buffer = bufnr, desc = 'Go to Previous' })
             vim.keymap.set('n', 'mi', function() vim.lsp.buf.implementation() end,
                 { remap = false, buffer = bufnr, desc = 'Implementations' })
-            vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end,
+            vim.keymap.set('n', 'gr','<cmd>Telescope lsp_references<cr>',
                 { remap = false, buffer = bufnr, desc = 'References' })
             vim.keymap.set("n", "mr", function() vim.lsp.buf.rename() end,
                 { remap = false, buffer = bufnr, desc = 'Rename' })
@@ -82,7 +75,7 @@ return {
                 { remap = false, buffer = bufnr, desc = 'Signature Help' })
             vim.keymap.set('n', 'ma', vim.lsp.buf.code_action,
                 { remap = false, buffer = bufnr, desc = 'Code Action' })
-            -- vim.keymap.set('n', '<leader>nj', '<cmd>e %:h/../../package.json<cr>', { desc = 'Open package file' })
+            vim.keymap.set('n', 'md', '<cmd>Telescope diagnostics<cr>', { remap = false, buffer = bufnr, desc = 'Diagnostics'})
 
             -- nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
             -- nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
@@ -107,22 +100,8 @@ return {
             -- end, '[W]orkspace [L]ist Folders')
             --
             -- Create a command `:Format` local to the LSP buffer
-            vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-                vim.lsp.buf.format()
-            end, { desc = 'Format current buffer with LSP' })
+            --
         end
-
-        -- vim.api.nvim_create_augroup('AutoFormat', {})
-        -- vim.api.nvim_create_autocmd(
-        --     "BufWritePre",
-        --     {
-        --         pattern = { '*.tsx', '*.go' },
-        --         group = 'AutoFormat',
-        --         callback = function()
-        --             vim.cmd('Format')
-        --         end
-        --     }
-        -- )
 
         local servers = {
             azure_pipelines_ls = {
@@ -221,7 +200,6 @@ return {
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
-        -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
         -- Ensure the servers above are installed
         local mason_lspconfig = require('mason-lspconfig')
@@ -245,13 +223,14 @@ return {
         mason_lspconfig.setup_handlers({
             function(server_name)
                 if server_name == 'gopls' then
-                    local cfg = require'go.lsp'.config()
+                    local cfg = require 'go.lsp'.config()
                     cfg.on_attach = on_attach
                     require('lspconfig')["gopls"].setup(cfg)
                     return
                 end
                 if server_name == 'powershell_es' then
-                    local installPath = require('mason-registry').get_package('powershell-editor-services'):get_install_path()
+                    local installPath = require('mason-registry').get_package('powershell-editor-services')
+                        :get_install_path()
                     require('lspconfig')['powershell_es'].setup({
                         bundle_path = installPath,
                         cmd = { 'pwsh', '-NoLogo', '-NoProfile',
