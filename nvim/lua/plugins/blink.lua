@@ -2,6 +2,7 @@ return {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
     dependencies = {
+        { 'L3MON4D3/LuaSnip', version = 'v2.*' },
         'rafamadriz/friendly-snippets',
         {
             "supermaven-inc/supermaven-nvim",
@@ -54,6 +55,21 @@ return {
             nerd_font_variant = 'mono'
         },
         completion = {
+            keyword = {
+                range = "full",
+            },
+            list  = {
+                selection = {
+                    preselect = function(ctx) return ctx.mode ~= "cmdline" end
+                },
+            },
+            accept = {
+                auto_brackets = {
+                    kind_resolution = {
+                        blocked_filetypes = { 'ps1' }
+                    }
+                },
+            },
             menu = {
                 draw = {
                     -- We don't need label_description now because label and label_description are already
@@ -72,6 +88,8 @@ return {
                 },
             },
         },
+
+        snippets = { preset = 'luasnip' },
 
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`

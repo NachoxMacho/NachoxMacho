@@ -19,5 +19,5 @@
     "workbench.startupEditor": "none",
     "window.titleBarStyle": "custom",
     "git.enableSmartCommit": false,
-    "git.suggestSmartCommit": false,
+    "git.suggestSmartCommit": false
 }
