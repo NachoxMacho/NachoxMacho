@@ -57,7 +57,7 @@ return {
                 { remap = false, buffer = bufnr, desc = 'Go to Definition' })
             vim.keymap.set("n", "gh", function() vim.lsp.buf.hover() end,
                 { remap = false, buffer = bufnr, desc = 'Open Hover' })
-            vim.keymap.set("n", "gs", '<cmd> Telescope lsp_workspace_symbols <cr>',
+            vim.keymap.set("n", "ms", '<cmd> Telescope lsp_workspace_symbols <cr>',
                 { remap = false, buffer = bufnr, desc = 'Workspace Symbol' })
             -- vim.keymap.set("n", "<leader>nn", function() vim.lsp.buf.goto_next() end,
             --     { remap = false, buffer = bufnr, desc = 'Go to Next' })

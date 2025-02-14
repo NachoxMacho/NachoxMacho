@@ -1,23 +1,11 @@
 # Kubectl Setup
-sudo apt update
-sudo apt install ca-certificates curl
-curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-sudo apt update
-sudo apt install kubectl
+brew install kubectl
 
 # Helm Setup
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
 # k9s Setup
-mkdir tmp
-cd tmp
-wget https://github.com/derailed/k9s/releases/download/v0.32.4/k9s_Linux_amd64.tar.gz
-tar -xzvf k9s_Linux_amd64.tar.gz
-sudo rm /usr/local/bin/k9s
-sudo mv k9s /usr/local/bin/k9s
-cd ..
-rm tmp -r
+brew install k9s
 mkdir $HOME/.config/k9s -p
 rm $HOME/.config/k9s/config.yaml $HOME/.config/k9s/skins -rf
 ln -s "$(pwd)/k9s/skins" "${HOME}/.config/k9s/skins"
@@ -25,9 +13,4 @@ ln -s "$(pwd)/k9s/config.yaml" "${HOME}/.config/k9s/config.yaml"
 
 
 # Trivy Setup
-sudo apt-get install wget gnupg
-wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
-echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb generic main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
-sudo apt-get update
-sudo apt-get install trivy
-
+brew install trivy

@@ -1,10 +1,7 @@
 # Install NeoVim
 # sudo snap install neovim --channel=edge
 
-sudo rm /usr/local/bin/nvim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-sudo mv nvim.appimage /usr/local/bin/nvim
+brew install neovim
 
 # Needed for telescope in nvim
 sudo apt install ripgrep
