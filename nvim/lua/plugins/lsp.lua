@@ -162,37 +162,37 @@ return {
                 }
             },
             -- tailwindcss = {},
-            templ = {},
+            -- templ = {},
             terraformls = { filetypes = { 'tf', 'tfvars', 'terraform' } },
             tflint = { filetypes = { 'tf', 'tfvars', 'terraform' } },
-            ts_ls = {
-                typescript = {
-                    inlayHints = {
-                        includeInlayParameterNameHints = "all",
-                        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                        includeInlayVariableTypeHints = true,
-                        includeInlayFunctionParameterTypeHints = true,
-                        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                        includeInlayPropertyDeclarationTypeHints = true,
-                        includeInlayFunctionLikeReturnTypeHints = true,
-                        includeInlayEnumMemberValueHints = true,
-                    }
-                },
-                javascript = {
-                    includeInlayParameterNameHints = "all",
-                    includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                    includeInlayVariableTypeHints = true,
-
-                    includeInlayFunctionParameterTypeHints = true,
-                    includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                    includeInlayPropertyDeclarationTypeHints = true,
-                    includeInlayFunctionLikeReturnTypeHints = true,
-                    includeInlayEnumMemberValueHints = true,
-                },
-                inlay_hints = {
-                    enabled = true,
-                },
-            },
+            -- ts_ls = {
+            --     typescript = {
+            --         inlayHints = {
+            --             includeInlayParameterNameHints = "all",
+            --             includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            --             includeInlayVariableTypeHints = true,
+            --             includeInlayFunctionParameterTypeHints = true,
+            --             includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+            --             includeInlayPropertyDeclarationTypeHints = true,
+            --             includeInlayFunctionLikeReturnTypeHints = true,
+            --             includeInlayEnumMemberValueHints = true,
+            --         }
+            --     },
+            --     javascript = {
+            --         includeInlayParameterNameHints = "all",
+            --         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            --         includeInlayVariableTypeHints = true,
+            --
+            --         includeInlayFunctionParameterTypeHints = true,
+            --         includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+            --         includeInlayPropertyDeclarationTypeHints = true,
+            --         includeInlayFunctionLikeReturnTypeHints = true,
+            --         includeInlayEnumMemberValueHints = true,
+            --     },
+            --     inlay_hints = {
+            --         enabled = true,
+            --     },
+            -- },
             yamlls = {}
         }
 
