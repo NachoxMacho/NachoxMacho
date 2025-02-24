@@ -19,6 +19,9 @@ require('lazy').setup({
     checker = {
         notify = false
     },
+    rocks = {
+        enabled = false,
+    },
     change_detection = {
         notify = false
     }
