@@ -160,7 +160,5 @@ export PATH="$PATH:$HOME/.local/bin/"
 
 bindkey -s ^f "tmux-sessionizer\n"
 
-export PATH=$PATH:/home/rob/.spicetify
 [[ "$PATH" == *"$HOME/bin:"* ]] || export PATH="$HOME/bin:$PATH"
-! { which werf | grep -qsE "^/home/rob/.trdl/"; } && [[ -x "$HOME/bin/trdl" ]] && source $("$HOME/bin/trdl" use werf "2" "stable")
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
