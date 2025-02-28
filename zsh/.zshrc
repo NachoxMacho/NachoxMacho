@@ -139,6 +139,9 @@ if [ -f /usr/local/go/bin/go ]; then
     export PATH=$PATH:/usr/local/go/bin
     export PATH=$PATH:$HOME/go/bin
 fi
+if [ -d "$HOME/go/bin" ]; then
+    export PATH=$PATH:$HOME/go/bin
+fi
 
 # rust
 if [ -f ~/.cargo/env ]; then

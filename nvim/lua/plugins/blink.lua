@@ -43,7 +43,7 @@ return {
             ['<C-p>'] = { 'select_prev', 'fallback' },
             ['<Enter>'] = { 'accept', 'fallback' },
             ['<C-k>'] = { 'show', 'hide', 'fallback' },
-            ['<C-comma>'] = { 'snippet_forward', 'fallback' },
+            ['<C-l>'] = { 'snippet_forward' },
             ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
             ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
         },

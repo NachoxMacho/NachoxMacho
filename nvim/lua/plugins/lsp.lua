@@ -44,14 +44,6 @@ return {
                 "nvim-neotest/nvim-nio"
             }
         },
-        {
-            -- 'Dan7h3x/signup.nvim',
-            -- config = function()
-            --     require('signup').setup({
-            --         toggle_key = "<C-l>",
-            --     })
-            -- end
-        },
     },
     config = function()
         local on_attach = function(_, bufnr)
