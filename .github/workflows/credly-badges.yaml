@@ -3,7 +3,6 @@ name: "Credly Badges"
 on:
   schedule:
     - cron: "0 0 * * *"
-  push:
 
 jobs:
   update-readme:
