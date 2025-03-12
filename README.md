@@ -25,3 +25,6 @@ Fun fact: I run my own kubernetes cluster for funsies at home, with the followin
 - Trivy for vulnerability scanning
 - Mealie for recipe management
 - Infisical for secrets management and syncing
+
+<!--START_BADGES:badges-->
+<!--END_BADGES:badges-->
