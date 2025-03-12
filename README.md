@@ -4,6 +4,7 @@ I'm a software engineer with a passion for building things that make people's li
 Primarily a Go developer, but i've also got extensive experience with PowerShell, and some experience with a mix of other languages like C++, C, C#, Bash, and Typescript.
 
 <!--START_SECTION:badges-->
+[![KCNA: Kubernetes and Cloud Native Associate](https://images.credly.com/size/110x110/images/f28f1d88-428a-47f6-95b5-7da1dd6c1000/KCNA_badge.png)](http://www.credly.com/badges/e99425d3-0225-47a8-afac-25d73909d329 "KCNA: Kubernetes and Cloud Native Associate")
 <!--END_SECTION:badges-->
 
 Primary Projects:
