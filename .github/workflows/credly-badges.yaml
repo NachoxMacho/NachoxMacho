@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Update
-        uses: mikejoh/credly-badges@main
+        uses: mikejoh/credly-badges@0.4.1
         with:
           CREDLY_USERNAME: nachoxmacho
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
