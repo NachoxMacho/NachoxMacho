@@ -3,6 +3,9 @@
 I'm a software engineer with a passion for building things that make people's lives easier.
 Primarily a Go developer, but i've also got extensive experience with PowerShell, and some experience with a mix of other languages like C++, C, C#, Bash, and Typescript.
 
+<!--START_SECTION:badges-->
+<!--END_SECTION:badges-->
+
 Primary Projects:
 - [SupermarketHelper](https://github.com/NachoxMacho/supermarkethelper): A web application for the game Supermarket Helper, to help manage inventory and prices.
 - [OpnLab](https://github.com/NachoxMacho/opnlab): New experimental project focused on making homelabs more accessible and managable.
@@ -26,5 +29,3 @@ Fun fact: I run my own kubernetes cluster for funsies at home, with the followin
 - Mealie for recipe management
 - Infisical for secrets management and syncing
 
-<!--START_BADGES:badges-->
-<!--END_BADGES:badges-->
