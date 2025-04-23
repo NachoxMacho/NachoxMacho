@@ -101,6 +101,9 @@ return {
             },
             htmx = {},
             gopls = {},
+            golangci_lint_ls = {
+                filetypes = { 'go', 'gomod' },
+            },
             jsonls = {},
             lua_ls = {
                 Lua = {
@@ -166,6 +169,18 @@ return {
                     cfg.capabilities = require('blink.cmp').get_lsp_capabilities(cfg.capabilities)
                     cfg.on_attach = on_attach
                     require('lspconfig')["gopls"].setup(cfg)
+                    return
+                end
+                if server_name == 'golangci_lint_ls' then
+                    require('lspconfig')['golangci_lint_ls'].setup({
+                        -- capabilities = capabilities,
+                        cmd = {'golangci-lint-langserver'},
+                        root_dir = require('lspconfig.util').root_pattern('.git', 'go.mod'),
+                        filetypes = servers[server_name].filetypes,
+                        init_options = {
+                            command = { "golangci-lint", "run", "--output.json.path", "stdout", '--show-stats=false', '--issues-exit-code=1' },
+                        }
+                    })
                     return
                 end
                 if server_name == 'powershell_es' then
