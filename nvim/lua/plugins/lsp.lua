@@ -11,7 +11,7 @@ return {
             config = true,
         },
         { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-        'folke/neodev.nvim',
+        'folke/lazydev.nvim',
         {
             'ray-x/go.nvim',
             build = ':lua require("go.install").update_all_sync()',
@@ -136,8 +136,6 @@ return {
             tflint = { filetypes = { 'tf', 'tfvars', 'terraform' } },
             yamlls = {}
         }
-
-        require('neodev').setup({})
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
