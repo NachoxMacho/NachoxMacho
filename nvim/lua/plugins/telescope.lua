@@ -3,6 +3,13 @@ return {
     dependencies = {
         'nvim-lua/plenary.nvim',
         "jmacadie/telescope-hierarchy.nvim",
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            build = 'make',
+            cond = function ()
+                return vim.fn.executable 'make' == 1
+            end,
+        }
     },
     config = function()
         require('telescope').setup({
@@ -22,15 +29,19 @@ return {
                     -- telescope-hierarchy.nvim config
                     -- these are the defaults and no need to reset them if you like these
                     initial_multi_expand = false, -- Run a multi-expand on open? If false, will only expand one layer deep by default
-                    multi_depth = 5,  -- How many layers deep should a multi-expand go?
+                    multi_depth = 5,              -- How many layers deep should a multi-expand go?
                     layout_strategy = "horizontal",
                 },
-                -- no other extensions here, they can have their own spec too
+                fzf = {},
             },
         })
 
         require('telescope').load_extension('hierarchy')
+        require('telescope').load_extension('fzf')
     end,
+    cmd = {
+        'Telescope',
+    },
     keys = {
         { '<leader>ff', ':Telescope find_files hidden=true<cr>',                                                  desc = 'Files' },
         { '<leader>fa', '<cmd> Telescope find_files no_ignore=true hidden=true<cr>',                              desc = 'All Files' },
