@@ -1,5 +1,6 @@
 return {
     'ray-x/go.nvim',
+    ft = 'go',
     build = ':lua require("go.install").update_all_sync()',
     dependencies = {
         "ray-x/guihua.lua",
