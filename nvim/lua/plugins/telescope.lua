@@ -40,6 +40,6 @@ return {
         { '<leader>r',  '<cmd>Telescope buffers sort_lastused=true ignore_current_buffer=true sort_mru=true<cr>', desc = 'Buffers' },
         { '<leader>fw', ':Telescope git_status<cr>',                                                              desc = 'Git Working Files (Status)' },
         { '<leader>ft', '<cmd>Telescope tags<cr>',                                                                desc = 'Tags' },
-        { '<leader>ss', '<cmd>Telescope search_history<cr>',                                                      desc = 'Search History' },
+        { '<leader>fd', '<cmd>Telescope diagnostics<cr>',                                                         desc = 'Diagnostics' },
     }
 }

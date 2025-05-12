@@ -3,8 +3,7 @@ return {
     lazy = false,
     config = function()
         local gs = require('gitsigns')
-        gs.setup({
-        })
+        gs.setup({})
         vim.keymap.set('n', '<leader>hs', gs.stage_hunk, { desc = 'Stage Chunk' })
         vim.keymap.set('n', '<leader>hr', gs.reset_hunk, { desc = 'Reset Chunk' })
         vim.keymap.set('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,

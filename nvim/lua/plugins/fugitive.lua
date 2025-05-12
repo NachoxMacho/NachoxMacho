@@ -90,7 +90,7 @@ return {
         { '<leader>gu', ':Git pull<cr>',               desc = 'Pull' },
         { '<leader>gs', toggleGit,                     desc = 'Status' },
         { '<leader>ga', gitAddCurrentFile,             desc = 'Add current file' },
-        { '<leader>gd', ':vert Gdiff HEAD<cr>',        desc = 'Diff current file' },
+        -- { '<leader>gd', ':vert Gdiff HEAD<cr>',        desc = 'Diff current file' },
         { '<leader>gg', gitCommitCurrentFile,          desc = 'Commit current file' },
         { '<leader>gc', gitCommit,                     desc = 'Commit' },
         { '<leader>gb', ':Telescope git_branches<cr>', desc = 'Branches' },
