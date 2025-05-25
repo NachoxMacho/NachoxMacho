@@ -23,8 +23,8 @@ return {
                         ["ih"] = { query = "@assignment.lhs", desc = "Assignment LHS" },
                         ["il"] = { query = "@assignment.rhs", desc = "Assignment RHS" },
 
-                        ["ac"] = { query = "@class.outer", desc = "Select outer part of a class region" },
-                        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+                        ["ac"] = { query = "@conditional.outer", desc = "Select outer part of a class region" },
+                        ["ic"] = { query = "@conditional.inner", desc = "Select inner part of a class region" },
 
                         ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
                     },
