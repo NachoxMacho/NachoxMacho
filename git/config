@@ -1,8 +1,35 @@
 [pull]
 	rebase = true
+
 [core]
-	excludesFiles = ~/.git/info/exclude
 	autocrlf = input
+    pager = delta
+    whitespace = error
+
+[interactive]
+    diffFilter = delta --color-only
+
+[push]
+    followTags = true
+    default = current
+    autoSetupRemote = true
+
+[rebase]
+    autoStash = true
+
+[delta]
+    side-by-side = true
+    features = Catppuccin-mocha
+    navigate = true
+    dark = true
+
+[merge]
+    conflictstyle = zdiff3
+
+[status]
+    branch = true
+    showStash = true
+    showUntrackedFiles = all
 
 [includeIf "gitdir:~/personal/"]
 path = .gitconfig-personal.inc

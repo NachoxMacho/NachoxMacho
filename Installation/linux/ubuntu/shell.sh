@@ -14,3 +14,7 @@ mkdir ~/.zsh
 ln -s "$(pwd)/zsh/.zshrc" "${HOME}/.zshrc"
 ln -s "$(pwd)/zsh/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" "${HOME}/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh"
 ln -s "$(pwd)/.local/bin/tmux-sessionizer" "${HOME}/.local/bin/tmux-sessionizer"
+
+brew install starship
+ln -s "$(pwd)/starship" "${HOME}/.config/starship"
+

@@ -2,6 +2,8 @@
 sudo apt install git
 sudo apt install gpg
 sudo apt install pass
+brew install git-delta
+brew install bat
 
 # Git Setup
 ssh-keygen -t ed25519 -C "rtowens17@gmail.com"
