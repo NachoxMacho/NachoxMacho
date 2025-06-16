@@ -70,7 +70,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker cp asdf kubectl helm tmux kube-ps1)
+plugins=(git docker cp asdf kubectl tmux kube-ps1 golang dotenv )
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
@@ -105,7 +105,7 @@ export EDITOR='nvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-RPROMPT='$(kube_ps1)'
+# RPROMPT='$(kube_ps1)'
 
 if [ -d ~/.cargo/bin ]; then
     export PATH=$PATH:$HOME/.cargo/bin
@@ -165,3 +165,12 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 [[ "$PATH" == *"$HOME/bin:"* ]] || export PATH="$HOME/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+export PATH=$PATH:/home/rob/.linkerd2/bin
+
+eval "$(starship init zsh)"
+
+eval "$(fzf --zsh)"
+
+source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
