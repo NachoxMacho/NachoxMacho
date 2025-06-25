@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             { remap = false, buffer = bufnr, desc = 'Format' })
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end,
             { remap = false, buffer = bufnr, desc = 'Signature Help' })
-        vim.keymap.set('n', 'ma', vim.lsp.buf.code_action,
+        vim.keymap.set({ 'n', 'x' }, 'ma', vim.lsp.buf.code_action,
             { remap = false, buffer = bufnr, desc = 'Code Action' })
         vim.keymap.set('n', 'md', '<cmd>Telescope diagnostics<cr>',
             { remap = false, buffer = bufnr, desc = 'Diagnostics' })
