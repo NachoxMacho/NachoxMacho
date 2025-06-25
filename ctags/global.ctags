@@ -1,9 +1,0 @@
---exclude=node_modules
---exclude=dist
---exclude=bin
---exclude=build
---exclude=.nx
---exclude=.next
---exclude=.git
---exclude=.vscode
---exclude=.yarn
