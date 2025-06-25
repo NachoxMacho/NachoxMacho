@@ -23,9 +23,6 @@
     navigate = true
     dark = true
 
-[merge]
-    conflictstyle = zdiff3
-
 [status]
     branch = true
     showStash = true
