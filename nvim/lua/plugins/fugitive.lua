@@ -83,6 +83,27 @@ local function gitCommitCurrentFile()
     end
 end
 
+local function gitTag()
+    local previousGit = findGitWindow()
+
+    local previousTag = vim.fn.system('git tag --list --sort="-creatordate" | head -n 1 | tr -d "\n"')
+
+    closeGit()
+    if FindWindow('git_diff') == false then
+        vim.cmd(':Git diff HEAD~1')
+    end
+    vim.cmd(':redraw') -- Need this so the window appears before input
+    local tagName = vim.fn.input('Tag (' .. previousTag .. ') > ')
+    if tagName == nil or tagName == '' then
+        vim.cmd(':Git tag ' .. tagName)
+    end
+    vim.api.nvim_win_close(0, true)
+
+    if previousGit then
+        openGit()
+    end
+end
+
 return {
     'tpope/vim-fugitive',
     keys = {
@@ -96,11 +117,12 @@ return {
         { '<leader>gb', ':Telescope git_branches<cr>', desc = 'Branches' },
         { '<leader>gl', ':Telescope git_commits<cr>',  desc = 'Commit List' },
         { '<leader>gq', ':Telescope git_bcommits<cr>', desc = 'Commit List' },
-        { '<leader>gt', gitCacheView,                  desc = 'Staged' },
+        { '<leader>gv', gitCacheView,                  desc = 'Staged' },
+        { '<leader>gt', gitTag,                        desc = 'Tag' },
         { '<leader>gj', '<cmd>diffget //2<cr>',        desc = 'Merge Left' },
         { '<leader>gl', '<cmd>diffget //3<cr>',        desc = 'Merge Right' },
         { '<leader>gm', '<cmd>Gvdiffsplit!<cr>',       desc = 'Merge' },
         { '<leader>gf', '<cmd>Git fetch --prune<cr>',  desc = 'Fetch & Prune' },
-        { '<leader>gn', ':Git checkout -b '},
+        { '<leader>gn', ':Git checkout -b ' },
     }
 }
