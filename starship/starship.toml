@@ -13,14 +13,11 @@ $git_status\
 $c\
 $rust\
 $golang\
-$nodejs\
-$php\
 $java\
-$kotlin\
-$haskell\
 $python\
 [](fg:green bg:sapphire)\
 $conda\
+$kubernetes\
 [](fg:sapphire bg:lavender)\
 $time\
 [ ](fg:lavender)\
@@ -85,11 +82,6 @@ format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
 style = "bg:yellow"
 format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)'
 
-[nodejs]
-symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
-
 [c]
 symbol = " "
 style = "bg:green"
@@ -105,23 +97,8 @@ symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
-[php]
-symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
-
 [java]
 symbol = " "
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
-
-[kotlin]
-symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
-
-[haskell]
-symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
@@ -135,11 +112,10 @@ symbol = ""
 style = "bg:sapphire"
 format = '[[ $symbol( $context) ](fg:crust bg:sapphire)]($style)'
 
-[conda]
-symbol = "  "
+[kubernetes]
+format = '[$context]($style)'
 style = "fg:crust bg:sapphire"
-format = '[$symbol$environment ]($style)'
-ignore_base = false
+disabled = false
 
 [time]
 disabled = false
