@@ -31,8 +31,8 @@
 [includeIf "gitdir:~/personal/"]
 path = .gitconfig-personal.inc
 
-[includeIf "gitdir:~/homelab/"]
-path = .gitconfig-homelab.inc
-
 [includeIf "gitdir:~/work/"]
 path = .gitconfig-work.inc
+
+[includeIf "gitdir:~/homelab/"]
+path = .gitconfig-homelab.inc
