@@ -54,7 +54,7 @@
   "render-markdown.nvim": { "branch": "main", "commit": "3115ff748d6885fe1af349feb6b73de03eda8e12" },
   "structrue-go.nvim": { "branch": "main", "commit": "4282b860cde0f5f25a1fb1af3ea8edb0db278e73" },
   "supermaven-nvim": { "branch": "main", "commit": "07d20fce48a5629686aefb0a7cd4b25e33947d50" },
-  "telescope-fzf-native.nvim": { "branch": "main", "commit": "1f08ed60cafc8f6168b72b80be2b2ea149813e55" },
+  "telescope-fzf-native.nvim": { "branch": "main", "commit": "2a5ceff981501cff8f46871d5402cd3378a8ab6a" },
   "telescope-hierarchy.nvim": { "branch": "main", "commit": "2ba4840d8ba9288ca85dc34b01cf946aee0b8fca" },
   "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
   "tint.nvim": { "branch": "master", "commit": "586e87f00c8b0f5e857cefe10839e41f3e8c6d01" },
