@@ -5,5 +5,7 @@ return {
         vim.o.timeout = true
         vim.o.timeoutlen = 250
     end,
-    opts = {}
+    opts = {
+        preset = 'helix'
+    }
 }
