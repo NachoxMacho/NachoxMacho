@@ -30,3 +30,12 @@
     branch = true
     showStash = true
     showUntrackedFiles = all
+
+[includeIf "gitdir:~/personal/"]
+path = .gitconfig-personal.inc
+
+[includeIf "gitdir:~/homelab/"]
+path = .gitconfig-homelab.inc
+
+[includeIf "gitdir:~/work/"]
+path = .gitconfig-work.inc
