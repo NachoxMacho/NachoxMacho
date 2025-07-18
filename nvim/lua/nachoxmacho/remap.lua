@@ -29,6 +29,11 @@ vim.keymap.set({'n', 'i' }, '<C-right>', '<Esc><C-w><right>', { desc = 'Window F
 vim.keymap.set({'n', 'i' }, '<C-up>', '<Esc><C-w><up>', { desc = 'Window Focus Up' })
 vim.keymap.set({'n', 'i' }, '<C-down>', '<Esc><C-w><down>', { desc = 'Window Focus Down' })
 
+vim.keymap.set({'n'}, '<leader>xx', function ()
+    os.remove(vim.fn.expand('%'))
+    vim.api.nvim_buf_delete(0, { force = true })
+end, { desc = 'Delete Current File' })
+
 -- vim.keymap.set('i', '<C-S-left>', '<Esc><cmd>bnext<cr>', { desc = 'Next buffer' })
 -- vim.keymap.set('i', '<C-S-right>', '<Esc><cmd>bnext<cr>', { desc = 'Previous buffer' })
 
@@ -75,3 +80,16 @@ end)
 -- remap formatting
 
 vim.keymap.set('n', '<leader>n=', '=ap', { desc = 'Format block' })
+
+local function commandInput()
+    vim.ui.input({}, function (c)
+        if c and c~="" then
+            vim.cmd("noswapfile vnew")
+            vim.bo.buftype = "nofile"
+            vim.bo.bufhidden = "wipe"
+            vim.api.nvim_buf_set_lines(0,0,-1, false, vim.fn.systemlist(c))
+        end
+    end
+    )
+end
+vim.keymap.set('n', '<leader>c', commandInput, {desc = 'Exec command'} )
