@@ -1,0 +1,32 @@
+[notebook]
+
+dir = "~/personal/zk"
+
+[note]
+
+filename = "{{format-date now 'timestamp-unix'}}"
+
+# id-length = 6
+
+[tool]
+
+editor = "nvim"
+shell = "zsh"
+
+[alias]
+files = "zk list -P --format=path --quiet $1"
+match = "zk edit --mention $1 --no-link-to $1 $2"
+find-matches = "zk list --mention $1 --no-link-to $@"
+link = "echo 'test'; zk files"
+unlinked-mentions = "zk list --mentioned-by $1 --no-linked-by $@"
+vim-qf-unlinked = "zk list --mentioned-by $1 --no-linked-by $1 --format '{{path}}, {{link}}, {{snippets}}' -Pq"
+
+
+[lsp.completion]
+use-additional-text-edits = true
+
+[lsp.diagnostics]
+wiki-title = "hint"
+dead-link = "error"
+missing-link = "warning"
+orphan-note = "error"
