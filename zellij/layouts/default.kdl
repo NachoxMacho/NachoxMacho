@@ -1,0 +1,23 @@
+layout {
+    tab name="nvim" hide_floating_panes=true {
+        pane command="nvim" name="nvim" focus=true
+        floating_panes {
+            pane {
+                x "10%"
+                y "10%"
+                width "80%"
+                height "80%"
+            }
+        }
+        pane size=1 borderless=true {
+           plugin location="compact-bar"
+        }
+    }
+    tab name="shell" {
+        pane
+        pane size=1 borderless=true {
+            plugin location="compact-bar"
+        }
+    }
+    // pane command="nvim" name="nvim" focus=true
+}
