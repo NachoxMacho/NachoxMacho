@@ -23,5 +23,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
             { remap = false, buffer = bufnr, desc = 'Code Action' })
         vim.keymap.set('n', 'md', '<cmd>Telescope diagnostics<cr>',
             { remap = false, buffer = bufnr, desc = 'Diagnostics' })
+        vim.keymap.set("n", "<leader>nd", function() vim.diagnostic.jump({count=1, float=true}) end,
+            { remap = false, buffer = bufnr, desc = 'Next Diagnostic' })
+        vim.keymap.set("n", "<leader>np", function() vim.diagnostic.jump({count=-1, float=true}) end,
+            { remap = false, buffer = bufnr, desc = 'Prev Diagnostic' })
+        vim.keymap.set("n", "<leader>nq", vim.diagnostic.setqflist,
+            { remap = false, buffer = bufnr, desc = 'Set Diagnostics to Quickfix' })
     end,
 })
