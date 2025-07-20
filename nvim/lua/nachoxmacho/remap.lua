@@ -81,15 +81,15 @@ end)
 
 vim.keymap.set('n', '<leader>n=', '=ap', { desc = 'Format block' })
 
-local function commandInput()
-    vim.ui.input({}, function (c)
-        if c and c~="" then
-            vim.cmd("noswapfile vnew")
-            vim.bo.buftype = "nofile"
-            vim.bo.bufhidden = "wipe"
-            vim.api.nvim_buf_set_lines(0,0,-1, false, vim.fn.systemlist(c))
-        end
+
+local function commandInput(input)
+  vim.ui.input({ prompt = "Command >", completion = "shellcmd" }, function(c)
+    if c and c ~= "" then
+      vim.cmd("noswapfile vnew")
+      vim.bo.buftype = "nofile"
+      vim.bo.bufhidden = "wipe"
+      vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.fn.systemlist(c))
     end
-    )
+  end)
 end
-vim.keymap.set('n', '<leader>c', commandInput, {desc = 'Exec command'} )
+vim.keymap.set('n', '<leader>cn', commandInput, { desc = 'Exec command' })
