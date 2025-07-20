@@ -96,6 +96,8 @@ export EDITOR='nvim'
 #   export EDITOR='nvim'
 # fi
 
+export ZK_NOTEBOOK_DIR="${HOME}/personal/zk"
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
