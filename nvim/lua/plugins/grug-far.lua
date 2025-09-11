@@ -4,7 +4,4 @@ return {
     cmd = {
         'GrugFar',
     }
-    -- config = function ()
-    --     require('grug-far').setup({})
-    -- end
 }
