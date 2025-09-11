@@ -5,9 +5,9 @@ return {
         dependencies = {
             'mfussenegger/nvim-dap',
         },
-        build = function()
-            vim.cmd.GoInstallDeps()
-        end,
+        -- build = function()
+        --     vim.cmd.GoInstallDeps()
+        -- end,
         opts = {}
     },
 }

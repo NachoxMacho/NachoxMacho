@@ -23,6 +23,7 @@ return {
                     modified
                 }
             },
+            lualine_b = { {'FugitiveHead', icon = ''}, },
             lualine_c = {
                 {
 
