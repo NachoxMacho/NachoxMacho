@@ -1,0 +1,11 @@
+import = [ "~/.config/alacritty/catppuccin/catppuccin-mocha.toml" ]
+live_config_reload = true
+
+[window]
+decorations = "Full"
+
+[font]
+normal = { family = "CaskaydiaCove Nerd Font Mono" }
+
+[scrolling]
+history = 100000
