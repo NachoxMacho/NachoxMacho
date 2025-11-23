@@ -1,6 +1,6 @@
 vim.g.mapleader = ' '
 
-vim.keymap.set("n", "<leader>s", "<cmd>update<cr>", { desc = 'Save File' } )
+vim.keymap.set("n", "<leader>s", "<cmd>update<cr>", { desc = 'Save File' })
 -- vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', { desc = 'Quit File (No Save)' } )
 -- vim.keymap.set('n', '<leader>w', '<c-w>', { desc = 'Window Mode' } )
 
@@ -21,17 +21,17 @@ vim.keymap.set("n", "<leader>s", "<cmd>update<cr>", { desc = 'Save File' } )
 
 -- vim.keymap.set('n', '<C-S-left>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
 -- vim.keymap.set('n', '<C-S-right>', '<cmd>bprevious<cr>', { desc = 'Prev buffer'})
-vim.keymap.set('n', '<C-x>', '<cmd>bd<cr>', { desc = 'Close buffer' })
-vim.keymap.set('n', '<C-S-x>', '<cmd>bd!<cr>', { desc = 'Close buffer!'})
+vim.keymap.set('n', '<C-x>', '<cmd>bd!<cr>', { desc = 'Close buffer' })
+-- vim.keymap.set('n', '<C-S-x>', '<cmd>bd!<cr>', { desc = 'Close buffer!'})
 
-vim.keymap.set({'n', 'i' }, '<C-left>', '<Esc><C-w><left>', { desc = 'Window Focus Left' })
-vim.keymap.set({'n', 'i' }, '<C-right>', '<Esc><C-w><right>', { desc = 'Window Focus Right' })
-vim.keymap.set({'n', 'i' }, '<C-up>', '<Esc><C-w><up>', { desc = 'Window Focus Up' })
-vim.keymap.set({'n', 'i' }, '<C-down>', '<Esc><C-w><down>', { desc = 'Window Focus Down' })
+vim.keymap.set({ 'n', 'i' }, '<C-left>', '<Esc><C-w><left>', { desc = 'Window Focus Left' })
+vim.keymap.set({ 'n', 'i' }, '<C-right>', '<Esc><C-w><right>', { desc = 'Window Focus Right' })
+vim.keymap.set({ 'n', 'i' }, '<C-up>', '<Esc><C-w><up>', { desc = 'Window Focus Up' })
+vim.keymap.set({ 'n', 'i' }, '<C-down>', '<Esc><C-w><down>', { desc = 'Window Focus Down' })
 
-vim.keymap.set({'n'}, '<leader>xx', function ()
-    os.remove(vim.fn.expand('%'))
-    vim.api.nvim_buf_delete(0, { force = true })
+vim.keymap.set({ 'n' }, '<leader>xx', function()
+  os.remove(vim.fn.expand('%'))
+  vim.api.nvim_buf_delete(0, { force = true })
 end, { desc = 'Delete Current File' })
 
 -- vim.keymap.set('i', '<C-S-left>', '<Esc><cmd>bnext<cr>', { desc = 'Next buffer' })
@@ -48,8 +48,8 @@ vim.keymap.set('n', '<PageDown>', 'Lzz')
 vim.keymap.set('i', '<Home>', '<C-o>^')
 vim.keymap.set('i', '<End>', '<C-o>$')
 
-vim.keymap.set('n', '<tab>', '<Nop>', { desc = 'Do nothing'})
-vim.keymap.set('x', '<tab>', '<Nop>', { desc = 'Do nothing'})
+vim.keymap.set('n', '<tab>', '<Nop>', { desc = 'Do nothing' })
+vim.keymap.set('x', '<tab>', '<Nop>', { desc = 'Do nothing' })
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 vim.keymap.set('n', '<leader>>', '<cmd>.><cr>')
@@ -58,24 +58,24 @@ vim.keymap.set('n', '<leader><', '<cmd>.<<cr>')
 vim.keymap.set('n', '<C-p>', '"*p', { desc = 'Star Paste' })
 vim.keymap.set('n', '<leader>p', '"0p', { desc = 'Last yank' })
 
-vim.keymap.set('v', '<leader>y', '"+y', { desc = 'System Copy'})
+vim.keymap.set('v', '<leader>y', '"+y', { desc = 'System Copy' })
 
 vim.keymap.set('n', '<leader>mf', ':%s/', { desc = 'Replace in current file' })
 vim.keymap.set('n', '<leader>mc', ':s//g<left><left>', { desc = 'Replace in current file' })
 
-vim.keymap.set('n', '<leader>fc', ':e %:h/',{  desc = 'Create File' })
+vim.keymap.set('n', '<leader>fc', ':e %:h/', { desc = 'Create File' })
 vim.keymap.set('n', '<leader>fn', ':e ', { desc = 'Create File' })
 vim.keymap.set('n', '<leader>fv', '<cmd>Explore<cr>', { desc = 'File Explorer' })
 
 local diagnostics_active = true
-vim.keymap.set('n', '<leader>d', function()
-  diagnostics_active = not diagnostics_active
-  if diagnostics_active then
-    vim.diagnostic.show()
-  else
-    vim.diagnostic.hide()
-  end
-end)
+-- vim.keymap.set('n', '<leader>d', function()
+--   diagnostics_active = not diagnostics_active
+--   if diagnostics_active then
+--     vim.diagnostic.show()
+--   else
+--     vim.diagnostic.hide()
+--   end
+-- end)
 
 -- remap formatting
 
