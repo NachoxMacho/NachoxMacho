@@ -3,11 +3,7 @@
 
 [core]
 	autocrlf = input
-    pager = delta
     whitespace = error
-
-[interactive]
-    diffFilter = delta --color-only
 
 [push]
     followTags = true
@@ -16,12 +12,6 @@
 
 [rebase]
     autoStash = true
-
-[delta]
-    side-by-side = true
-    features = Catppuccin-mocha
-    navigate = true
-    dark = true
 
 [status]
     branch = true
