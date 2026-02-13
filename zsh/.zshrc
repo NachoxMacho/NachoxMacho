@@ -162,7 +162,12 @@ export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
 ssh-add -l 2>/dev/null >/dev/null
 
 # if not valid, then start ssh-agent using $SSH_AUTH_SOCK
-[ $? -ge 2 ] && rm ~/.ssh/ssh-agent.sock && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+if [ $? -ge 2 ]; then
+    if [ -f ~/.ssh/ssh-agent.sock ]; then
+        rm ~/.ssh/ssh-agent.sock
+    fi
+    ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+fi
 
 
 if [ -d /usr/share/doc/fzf ]; then
