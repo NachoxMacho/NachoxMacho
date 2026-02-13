@@ -20,6 +20,11 @@ fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected
+    if [[ "$selected" =~ \/home\/.*\/.* ]]; then
+        tmux new-window -t $selected_name -c $selected "nvim"
+    else
+        tmux new-window -t $selected_name -c $selected
+    fi
 fi
 
 if [[ -n $TMUX ]]; then
