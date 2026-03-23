@@ -15,6 +15,11 @@ tmux_running=$(pgrep tmux)
 
 if [[ -z $tmux_running ]]; then
     tmux new-session -s $selected_name -c $selected
+    if [[ "$selected" =~ \/home\/.*\/.* ]]; then
+        tmux new-window -t $selected_name -c $selected "nvim"
+    else
+        tmux new-window -t $selected_name -c $selected
+    fi
     exit 0
 fi
 
