@@ -13,7 +13,7 @@ return {
     opts = {
         options = {
             icons_enabled = true,
-            theme = 'catppuccin',
+            theme = 'catppuccin-nvim',
             globalstatus = true,
             always_divide_middle = false,
         },

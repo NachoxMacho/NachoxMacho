@@ -16,16 +16,21 @@ return {
         },
     },
     opts = {
-        lsp_cfg = false,
-        tag_options = "",
+      lsp_cfg = false,
+      tag_options = "",
+      -- gofmt= 'gofumpt',
+      lsp_gofumpt = true,
 
-        lsp_semantic_highlights = true,
-        lsp_inlay_hints = {
-            enabled = false,
-            style = 'eol',
-        },
-        trouble = false,
-        luasnip = true,
+      golangci_lint = {
+        default = 'all',
+      },
+
+      lsp_semantic_highlights = true,
+      lsp_inlay_hints = {
+          enabled = false,
+          style = 'eol',
+      },
+      luasnip = true,
     },
     config = function(opts)
         require('go').setup(opts)
