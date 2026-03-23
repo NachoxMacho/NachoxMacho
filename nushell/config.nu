@@ -44,13 +44,26 @@ $env.config = (
     )
 )
 
+# fnm (Node)
+if not (which fnm | is-empty) {
+    ^fnm env --json | from json | load-env
+
+    $env.PATH = $env.PATH | prepend ($env.FNM_MULTISHELL_PATH | path join (if $nu.os-info.name == 'windows' {''} else {'bin'}))
+    $env.config.hooks.env_change.PWD = (
+        $env.config.hooks.env_change.PWD? | append {
+            condition: {|| ['.nvmrc' '.node-version', 'package.json'] | any {|el| $el | path exists}}
+            code: {|| ^fnm use --install-if-missing }
+        }
+    )
+}
+
 # carapace-bin
 source $"($nu.cache-dir)/carapace.nu"
 
 # Aliases
 alias k = kubectl
 
-source "~/.cargo/env.nu"
+# source "~/.cargo/env.nu"
 
 $env.config.keybindings ++= [
     {
@@ -269,4 +282,24 @@ $env.config.explore = {
         info: $theme.blue,
     },
     selected_cell: { bg: $theme.blue fg: $theme.base },
+}
+
+# From https://github.com/nushell/nushell/issues/8166#issuecomment-2614432637
+def w [
+    --duration (-d): duration = 2sec
+    command: closure
+] {
+    loop {
+    clear
+    print $"Running every ($duration) on '(hostname)': (explain $command | get cmd_name)"
+
+    let last_run = (date now)
+    let till = $last_run + $duration
+
+    do $command | print
+
+    print ""
+    print $"Last run: ($last_run)"
+    sleep ($till - (date now))
+  }
 }
