@@ -22,8 +22,8 @@ $kubernetes\
 $time\
 [ ](fg:lavender)\
 $cmd_duration\
-$line_break\
-$character"""
+$line_break
+"""
 
 palette = 'catppuccin_mocha'
 add_newline = true

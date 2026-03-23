@@ -1,3 +1,4 @@
+[general]
 import = [ "~/.config/alacritty/catppuccin/catppuccin-mocha.toml" ]
 live_config_reload = true
 
@@ -6,6 +7,13 @@ decorations = "Full"
 
 [font]
 normal = { family = "CaskaydiaCove Nerd Font Mono" }
+size = 10.0
+
+[selection]
+save_to_clipboard = true
 
 [scrolling]
 history = 100000
+
+[terminal]
+shell = "/home/linuxbrew/.linuxbrew/bin/nu"
