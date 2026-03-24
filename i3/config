@@ -57,7 +57,7 @@ exec --no-startup-id playerctld daemon
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec /home/rob/.cargo/bin/alacritty
+bindsym $mod+Return exec ghostty
 
 # kill focused window
 bindsym $mod+Shift+q kill

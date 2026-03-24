@@ -1,0 +1,5 @@
+font-family = CaskaydiaCove Nerd Font Mono
+font-size = 10
+theme = Catppuccin Mocha
+confirm-close-surface = false
+command = nu

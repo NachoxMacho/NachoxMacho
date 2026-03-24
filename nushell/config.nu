@@ -1,8 +1,8 @@
 use std/util "path add"
-path add $"($env.HOME)/.local/bin"
+# path add $"($env.HOME)/.local/bin"
 
 # Homebrew
-path add "/home/linuxbrew/.linuxbrew/bin"
+# path add "/home/linuxbrew/.linuxbrew/bin"
 
 # if pulumi
 path add ($env.HOME | path join ".pulumi/bin")
@@ -12,7 +12,7 @@ path add ($env.HOME | path join "go/bin")
 path add "/usr/local/go/bin"
 
 # Cargo
-path add ($env.HOME | path join ".cargo/bin")
+# path add ($env.HOME | path join ".cargo/bin")
 
 # carapace-bin
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
@@ -62,6 +62,7 @@ source $"($nu.cache-dir)/carapace.nu"
 
 # Aliases
 alias k = kubectl
+alias l = ls -a
 
 # source "~/.cargo/env.nu"
 
