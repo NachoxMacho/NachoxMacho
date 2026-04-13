@@ -3,7 +3,8 @@ vim.opt.relativenumber = false
 
 -- NetRW settings
 vim.g.netrw_keepdir = 1
--- vim.g.netrw_localcopydircommand = 'cp -r'
+vim.g.netrw_localcopydircommand = 'cp -r'
+-- vim.g.netrw_localmovedircommand = 'mv -r'
 vim.g.netrw_localmkdir = "mkdir -p"
 vim.g.netrw_localrmdir = "rm -r"
 vim.g.netrw_sizestyle = 'H'
@@ -93,3 +94,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank()
     end,
 })
+
+-- Settings for Nushell compatability
+-- Pulled from https://github.com/nushell/integrations/blob/3b336880bab952585ebb5a04065f0f85d769abeb/nvim/init.lua
+
+vim.opt.sh = "nu"
+vim.opt.shelltemp = false
+vim.opt.shellredir = "out+err> %s"
+vim.opt.shellcmdflag = "--stdin --no-newline -c"
+vim.opt.shellxescape = ""
+vim.opt.shellxquote = ""
+vim.opt.shellquote = ""
+vim.opt.shellpipe = '| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record'
+

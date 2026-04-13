@@ -1,5 +1,6 @@
 use std/util "path add"
-# path add $"($env.HOME)/.local/bin"
+path add $"($env.HOME)/.local/bin"
+path add /usr/local/bin
 
 # Homebrew
 # path add "/home/linuxbrew/.linuxbrew/bin"
@@ -72,14 +73,7 @@ $env.config.keybindings ++= [
         modifier: Control
         keycode: char_f
         mode: [emacs, vi_normal, vi_insert]
-        event: { send: executehostcommand, cmd: "run-external tmux-sessionizer" }
-    }
-    {
-        name: sessionizer
-        modifier: Control
-        keycode: char_f
-        mode: [vi_normal]
-        event: { send: executehostcommand, cmd: "run-external tmux-sessionizer" }
+        event: { send: executehostcommand, cmd: "run-external sessionizer" }
     }
 ]
 
@@ -304,3 +298,5 @@ def w [
     sleep ($till - (date now))
   }
 }
+
+$env.SHELL = (which nu | get path | to text)
