@@ -1,0 +1,133 @@
+#!/usr/bin/env nu
+
+def "main" [] {
+  glob ($env.HOME)/{personal,work,homelab}/**/.git --depth 6
+    | path dirname
+    | prepend ($env.HOME)
+    | sk --format {
+      each { $in
+        | path split
+        | last 2
+        | path join
+      }
+    } --preview-window up:50% --preview {
+      $in
+      | if ($in | session exists) { $in | session preview } else { ls $in }
+    }
+    | if ($in == null) { return } else { $in }
+    | str trim
+    | session switch
+}
+
+def "main path" [dir: path] {
+  $dir
+  | session switch
+}
+
+def "main clone" [ssh_url: string, depth?: int = 1] {
+  $ssh_url
+  | if ($in !~ ".*git.*@.*:.*.git") {
+    print "Please provide a valid SSH url"
+    return
+  } else { $in }
+  | if ($in | str contains "gitlab.clarkinc.biz") {
+    $env.HOME
+    | path join "work"
+    | path join (
+      $ssh_url
+      | split row ":"
+      | get 1
+      | str replace ".git" ""
+    );
+  } else {
+    $env.HOME
+    | path join "personal"
+    | path join (
+      $ssh_url
+      | split row ":"
+      | get 1
+      | str replace ".git" ""
+    );
+  }
+  | if not ($in | path exists) {
+    git clone --depth $depth $ssh_url $in;
+    $in
+  } else { $in }
+  | main path $in
+}
+
+# def "main clone" [ssh_url: string, depth?: int = 1] {
+#   let $prefix = $ssh_url
+#     | if ($in =~ ".*gitlab.clarkinc.biz.*") { $env.HOME | path join "work" } else { $in }
+#     | if ($in =~ ".*github.com.*") { $env.HOME | path join "personal/github" } else { $in }
+#     | if ($in =~ ".*git.robowens.dev.*") { $env.HOME | path join "homelab" } else { $in }
+#     | each { $env.HOME | path join "personal" }
+#   let repo_name = $ssh_url | url parse | get path | path split | last | split row "." | first
+#   let repo_path = $prefix | path join $repo_name
+#
+#   if not ($repo_path | path exists) {
+#     print "Cloning with git..."
+#     git clone --depth $depth $ssh_url $repo_path
+#   }
+#
+#   main path $repo_path
+# }
+
+def friendly []: [
+  path -> string
+] {
+  $in
+  | each {
+    path split
+    | last 2
+    | str join '-'
+    | str replace -a '.' '_'
+  }
+}
+
+def "session exists" []: [
+path -> bool
+] {
+  $in
+  | friendly
+  | tmux has-session -t $in
+  | complete
+  | $in.exit_code == 0
+}
+
+def "session preview" []: [
+  path -> string
+] {
+  $in
+  | friendly
+  | tmux capture-pane -pe -t $"($in):primary.0"
+  | complete
+  | get stdout
+}
+
+def "session create" [dir?: path]: [
+  path -> nothing
+] {
+  $in
+  | each {
+    let path = $in
+    let name = $in | friendly
+    if $name =~ "home-.*" { # Generate some temporary panes
+      tmux new-session -ds $name -n "secondary" -c $path
+      tmux new-window -t $"($name)" -n "primary" -c $path
+    } else {
+      tmux new-session -ds $name -n "secondary" -c $path
+      tmux new-window -t $"($name)" -n "primary" -c $path
+      tmux send-keys -t $"($name):primary" "nvim" C-m
+    }
+  }
+}
+
+def "session switch" []: [
+  path -> nothing
+] {
+  $in
+  | if not ($in | session exists) { $in | session create; $in } else { $in }
+  | friendly
+  | if "TMUX" in $env { tmux switch-client -t $in } else { print ""; tmux new-session -A -t $in }
+}
