@@ -1,5 +1,6 @@
 font-family = CaskaydiaCove Nerd Font Mono
-font-size = 10
+font-size = 12
 theme = Catppuccin Mocha
 confirm-close-surface = false
 command = nu
+window-decoration = server
