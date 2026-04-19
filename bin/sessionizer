@@ -1,7 +1,7 @@
 #!/usr/bin/env nu
 
 def "main" [] {
-  glob ($env.HOME)/{personal,work,homelab}/**/.git --depth 6
+  glob ($env.HOME)/{personal,work,homelab,github,gitlab,codeberg}/**/.git --depth 6
     | path dirname
     | prepend ($env.HOME)
     | sk --format {
@@ -24,38 +24,47 @@ def "main path" [dir: path] {
   | session switch
 }
 
-def "main clone" [ssh_url: string, depth?: int = 1] {
+def "main clone" [ssh_url: string] {
   $ssh_url
-  | if ($in !~ ".*git.*@.*:.*.git") {
-    print "Please provide a valid SSH url"
-    return
-  } else { $in }
-  | if ($in | str contains "gitlab.clarkinc.biz") {
-    $env.HOME
-    | path join "work"
-    | path join (
-      $ssh_url
-      | split row ":"
-      | get 1
-      | str replace ".git" ""
-    );
-  } else {
-    $env.HOME
-    | path join "personal"
-    | path join (
-      $ssh_url
-      | split row ":"
-      | get 1
-      | str replace ".git" ""
-    );
-  }
+  # | if ($in !~ ".*git.*@.*:.*.git") {
+  #   print "Please provide a valid SSH url"
+  #   return
+  # } else { $in }
+  | repo_path
   | if not ($in | path exists) {
-    git clone --depth $depth $ssh_url $in;
+    git clone $ssh_url $in;
     $in
   } else { $in }
   | main path $in
 }
 
+def repo_path []: [
+  string -> string
+] {
+  let origin = $in
+
+  let prefix = $env.HOME
+  mut gitFolder = $origin
+  | str replace "ssh://" ""
+  | split row ":"
+  | first
+  | split row "@"
+  | last
+  | split row "."
+  | drop 1
+  | str join "-"
+
+  if $gitFolder =~ "git-robowens" {
+    $gitFolder = "homelab"
+  }
+
+  let repoFolder = $origin
+  | split row ":"
+  | last
+  | str replace ".git" ""
+
+  return ($prefix | path join $gitFolder | path join $repoFolder)
+}
 # def "main clone" [ssh_url: string, depth?: int = 1] {
 #   let $prefix = $ssh_url
 #     | if ($in =~ ".*gitlab.clarkinc.biz.*") { $env.HOME | path join "work" } else { $in }
@@ -126,8 +135,12 @@ def "session create" [dir?: path]: [
 def "session switch" []: [
   path -> nothing
 ] {
-  $in
+  let name = $in
   | if not ($in | session exists) { $in | session create; $in } else { $in }
   | friendly
-  | if "TMUX" in $env { tmux switch-client -t $in } else { print ""; tmux new-session -A -t $in }
+  if "TMUX" in $env {
+    tmux switch-client -t $name
+  } else {
+    tmux attach-session -t $name
+  }
 }

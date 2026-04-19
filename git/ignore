@@ -3,3 +3,4 @@
 # Repository Tag management files
 tags
 .gutctags
+.pnpm-store
